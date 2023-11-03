@@ -9,18 +9,25 @@
     <title>Login</title>
 </head>
 <body>
+    {{-- ini div pembungkus keseluruhan form login --}}
     <div class="container py-5">
+        {{-- ini div untuk mengatur lebar dan padding form --}}
         <div class="w-50 center border rounded px-3 py-3 mx-auto">
         <h1>Login</h1>
         @if($errors->any())
+        {{-- div ini adalah alert klo sebagai pembungkus list --}}
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $item)
-                    <li>{{ $item }}</li>
+                {{-- ini List Item klo user belum isi Form  --}}
+                {{-- ini {{ $item }} itu adalah kondisi --}}
+                    <li> {{ $item }} </li> 
                 @endforeach
             </ul>
         </div>
         @endif
+        {{-- ini adalah form untuk kalian modifikasi lagi --}}
+        {{-- ini adalah value untuk mengambil old email dari data --}}
         <form action="" method="POST">
             @csrf
             <div class="mb-3">
