@@ -44,7 +44,7 @@
     <div class="row">
       <div class="col-md-12">
 
-        <h3 class="ms-2 mt-5">Tabel Transaction</h3>
+        <h3 class="ms-2 mt-5">All Transaction</h3>
 
         <div class="d-flex justify-content-end mt-3">
           <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Input Barang</a>
@@ -62,6 +62,7 @@
                 <th class="text-center" style="white-space: nowrap;">Jumlah Barang</th>
                 <th class="text-center" style="white-space: nowrap;">Description</th>
                 <th class="text-center" style="white-space: nowrap;">Receiver</th>
+                <th class="text-center">Create Up</th>
                 <th class="text-center" style="white-space: nowrap;">Action</th>
               </tr>
             </thead>
@@ -109,11 +110,13 @@
     <div class="row">
       <div class="col-md-12">
 
-        <h3 class="ms-2">Tabel Transaction</h3>
+        <h3 class="ms-2">Tabel All Transaction</h3>
 
         <div class="d-flex justify-content-end mt-3">
-          <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Tabel Barang</a>
-          <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Tabel Status</a>
+          <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Check Barang Keluar</a>
+          <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Check Barang Masuk</a>
+          <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Check Jumlah Barang</a>
+          <a href="" class="btn btn-sm btn-success active text-uppercase fw-semibold mx-2 p-2">Check Status</a>
         </div>
         
         <div class="table-responsive my-3">
@@ -126,6 +129,7 @@
                 <th class="text-center">Jumlah Barang</th>
                 <th class="text-center">Description</th>
                 <th class="text-center">Receiver</th>
+                <th class="text-center">Create Up</th>
               </tr>
             </thead>
           </table>
