@@ -10,7 +10,6 @@
     <style>
         body {
             background-color: #fff; /* Warna latar belakang putih */
-           
         }
     
         .container {
