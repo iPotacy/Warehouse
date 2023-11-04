@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
+});
+
 // Route untuk Login & logout Session
 Route::middleware(['guest'])->group( function(){
     Route::get('/',[SessionController::class, 'index'])->name('login');
