@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+// Route untuk Login & logout Session
+Route::middleware(['guest'])->group( function(){
+    Route::get('/',[SessionController::class, 'index'])->name('login');
+    Route::post('/',[SessionController::class, 'login']);
+});
+
+// Validation untuk tidak kembali login ketika sudah login
+Route::get('/home', function(){
+    return redirect('/admin');
+});
+
+// Route Authentication User
+Route::middleware(['auth'])->group(function(){
+    // Logout
+    Route::get('/logout',[SessionController::class, 'logout']);
+    // Route untuk User & Admin
+    Route::get('/admin',[AdminController::class, 'admin'])->middleware('userAccess:admin');
+    Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
 });

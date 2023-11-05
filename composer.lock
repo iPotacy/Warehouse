@@ -5699,6 +5699,7 @@
         },
         {
             "name": "filp/whoops",
+<<<<<<< HEAD
             "version": "2.15.4",
             "source": {
                 "type": "git",
@@ -5709,6 +5710,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/filp/whoops/zipball/a139776fa3f5985a50b509f2a02ff0f709d2a546",
                 "reference": "a139776fa3f5985a50b509f2a02ff0f709d2a546",
+=======
+            "version": "2.15.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/filp/whoops.git",
+                "reference": "c83e88a30524f9360b11f585f71e6b17313b7187"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/c83e88a30524f9360b11f585f71e6b17313b7187",
+                "reference": "c83e88a30524f9360b11f585f71e6b17313b7187",
+>>>>>>> 4963613c690c0bc20c5666a1d8e8e5e141d4bb7f
                 "shasum": ""
             },
             "require": {
@@ -5758,7 +5771,11 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/filp/whoops/tree/2.15.4"
+=======
+                "source": "https://github.com/filp/whoops/tree/2.15.3"
+>>>>>>> 4963613c690c0bc20c5666a1d8e8e5e141d4bb7f
             },
             "funding": [
                 {
@@ -5766,7 +5783,11 @@
                     "type": "github"
                 }
             ],
+<<<<<<< HEAD
             "time": "2023-11-03T12:00:00+00:00"
+=======
+            "time": "2023-07-13T12:00:00+00:00"
+>>>>>>> 4963613c690c0bc20c5666a1d8e8e5e141d4bb7f
         },
         {
             "name": "hamcrest/hamcrest-php",
