@@ -10,6 +10,10 @@
 </head>
 <body>
 
+  @php
+    $no = 1;
+  @endphp
+
   {{-- Admin Page --}}
   @if (Auth::user()->role == 'admin')
   {{-- Navbar --}}
@@ -56,16 +60,30 @@
           <table class="table table-bordered table-responsive table-hover table-striped table-sm table-md table-lg">
             <thead class="bg-warning">
               <tr>
+                <th class="text-center" style="white-space: nowrap;">No</th>
                 <th class="text-center" style="white-space: nowrap;">Jenis Barang</th>
                 <th class="text-center" style="white-space: nowrap;">User Input</th>
                 <th class="text-center" style="white-space: nowrap;">Transaction</th>
-                <th class="text-center" style="white-space: nowrap;">Jumlah Barang</th>
-                <th class="text-center" style="white-space: nowrap;">Description</th>
+                <th class="text-center" style="white-space: nowrap;">Quantity</th>
+                <th class="text-center" style="white-space: nowrap;">Descriptin</th>
                 <th class="text-center" style="white-space: nowrap;">Receiver</th>
                 <th class="text-center">Create Up</th>
-                <th class="text-center" style="white-space: nowrap;">Action</th>
               </tr>
             </thead>
+            <tbody>
+              @foreach($barang as $tb)
+              <tr>
+                <td>{{ $no++ }}</td>
+				        <td>{{ $tb->m_barang_id }}</td>
+                <td>{{ $tb->m_user_id }}</td>
+                <td>{{ $tb->m_tansaction_id }}</td>
+                <td>{{ $tb->quantity }}</td>
+                <td>{{ $tb->description }}</td>
+                <td>{{ $tb->receiver }}</td>
+                <td>{{ $tb->created_at }}</td>
+              </tr>
+              @endforeach
+            </tbody>
           </table>
         </div>
         
@@ -123,15 +141,30 @@
           <table class="table table-bordered table-responsive table-hover table-striped table-sm table-md table-lg">
             <thead class="bg-warning">
               <tr>
-                <th class="text-center">Jenis Barang</th>
-                <th class="text-center">User Input</th>
-                <th class="text-center">Transaction</th>
-                <th class="text-center">Jumlah Barang</th>
-                <th class="text-center">Description</th>
-                <th class="text-center">Receiver</th>
+                <th class="text-center" style="white-space: nowrap;">No</th>
+                <th class="text-center" style="white-space: nowrap;">Jenis Barang</th>
+                <th class="text-center" style="white-space: nowrap;">User Input</th>
+                <th class="text-center" style="white-space: nowrap;">Transaction</th>
+                <th class="text-center" style="white-space: nowrap;">Quantity</th>
+                <th class="text-center" style="white-space: nowrap;">Descriptin</th>
+                <th class="text-center" style="white-space: nowrap;">Receiver</th>
                 <th class="text-center">Create Up</th>
               </tr>
             </thead>
+            <tbody>
+              @foreach($barang as $tb)
+              <tr>
+                <td>{{ $no++ }}</td>
+				        <td>{{ $tb->m_barang_id }}</td>
+                <td>{{ $tb->m_user_id }}</td>
+                <td>{{ $tb->m_tansaction_id }}</td>
+                <td>{{ $tb->quantity }}</td>
+                <td>{{ $tb->description }}</td>
+                <td>{{ $tb->receiver }}</td>
+                <td>{{ $tb->created_at }}</td>
+              </tr>
+              @endforeach
+            </tbody>
           </table>
         </div>
         
