@@ -9,7 +9,12 @@
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
+{{-- Untuk judul header pada tabel --}}
 
+  @php
+    $ar_judul = ['NO','Jenis Barang','User Input','Transaction','Jumlah Barang','Description','Receiver','Create Up','Action'];
+    $no = 1;
+  @endphp
   {{-- Admin Page --}}
   @if (Auth::user()->role == 'admin')
   {{-- Navbar --}}
@@ -56,16 +61,26 @@
           <table class="table table-bordered table-responsive table-hover table-striped table-sm table-md table-lg">
             <thead class="bg-warning">
               <tr>
-                <th class="text-center" style="white-space: nowrap;">Jenis Barang</th>
-                <th class="text-center" style="white-space: nowrap;">User Input</th>
-                <th class="text-center" style="white-space: nowrap;">Transaction</th>
-                <th class="text-center" style="white-space: nowrap;">Jumlah Barang</th>
-                <th class="text-center" style="white-space: nowrap;">Description</th>
-                <th class="text-center" style="white-space: nowrap;">Receiver</th>
-                <th class="text-center">Create Up</th>
-                <th class="text-center" style="white-space: nowrap;">Action</th>
+                @foreach($ar_judul as $jdl)
+                  <th class="text-center" style="white-space: nowrap;">{{$jdl}}</th>
+                @endforeach
               </tr>
             </thead>
+            <tbody>
+              @foreach($ar_tbarang as $tb)
+              <tr>
+                <td>{{ $no++ }}</td>
+				        <td>{{ $tb->m_barang_id }}</td>
+                <td>{{ $tb->m_user_id }}</td>
+                <td>{{ $tb->m_tansaction_id }}</td>
+                <td>{{ $tb->quantity }}</td>
+                <td>{{ $tb->description }}</td>
+                <td>{{ $tb->receiver }}</td>
+                <td>{{ $tb->m_status_id }}</td>
+                <td>{{ $tb->created_at }}</td>
+              </tr>
+              @endforeach
+            </tbody>
           </table>
         </div>
         

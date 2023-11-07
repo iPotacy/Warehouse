@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransaksiBarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,5 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin',[AdminController::class, 'admin'])->middleware('userAccess:admin');
     Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
 });
+
+Route::get('/admin', [TransaksiBarangController::class, 'index']);
