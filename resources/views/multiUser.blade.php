@@ -15,6 +15,8 @@
     $ar_judul = ['No','Item','User Input','Transaction','Quantity','Description','Receiver','Status','Create Up'];
     $no = 1;
   @endphp
+    $no = 1;
+  @endphp
   {{-- Admin Page --}}
   @if (Auth::user()->role == 'admin')
   {{-- Navbar --}}
@@ -34,6 +36,14 @@
                 @foreach($ar_judul as $jdl)
                   <th class="text-center" style="white-space: nowrap;">{{$jdl}}</th>
                 @endforeach
+                <th class="text-center" style="white-space: nowrap;">No</th>
+                <th class="text-center" style="white-space: nowrap;">Jenis Barang</th>
+                <th class="text-center" style="white-space: nowrap;">User Input</th>
+                <th class="text-center" style="white-space: nowrap;">Transaction</th>
+                <th class="text-center" style="white-space: nowrap;">Quantity</th>
+                <th class="text-center" style="white-space: nowrap;">Descriptin</th>
+                <th class="text-center" style="white-space: nowrap;">Receiver</th>
+                <th class="text-center">Create Up</th>
               </tr>
             </thead>
             <tbody>
@@ -92,7 +102,7 @@
   </div>--}}
   {{-- Akhir Navbar --}}
 
-  <div class="container mt-5">
+  <div class="container mt-5">;
     <div class="row">
       <div class="col-md-12">
 
@@ -108,6 +118,11 @@
                 <th class="text-center" style="white-space: nowrap;">Transaction</th>
                 <th class="text-center" style="white-space: nowrap;">Quantity</th>
                 <th class="text-center" style="white-space: nowrap;">Description</th>
+                <th class="text-center" style="white-space: nowrap;">Jenis Barang</th>
+                <th class="text-center" style="white-space: nowrap;">User Input</th>
+                <th class="text-center" style="white-space: nowrap;">Transaction</th>
+                <th class="text-center" style="white-space: nowrap;">Quantity</th>
+                <th class="text-center" style="white-space: nowrap;">Descriptin</th>
                 <th class="text-center" style="white-space: nowrap;">Receiver</th>
                 <th class="text-center">Create Up</th>
               </tr>
