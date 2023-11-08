@@ -76,7 +76,7 @@
                 <td>{{ $no++ }}</td>
 				        <td>{{ $tb->m_barang_id }}</td>
                 <td>{{ $tb->m_user_id }}</td>
-                <td>{{ $tb->m_tansaction_id }}</td>
+                <td>{{ $tb->m_transaction_id }}</td>
                 <td>{{ $tb->quantity }}</td>
                 <td>{{ $tb->description }}</td>
                 <td>{{ $tb->receiver }}</td>
@@ -124,7 +124,7 @@
   </div>
   {{-- Akhir Navbar --}}
 
-  <div class="container mt-5">
+  <div class="container mt-5">;
     <div class="row">
       <div class="col-md-12">
 
@@ -157,7 +157,7 @@
                 <td>{{ $no++ }}</td>
 				        <td>{{ $tb->m_barang_id }}</td>
                 <td>{{ $tb->m_user_id }}</td>
-                <td>{{ $tb->m_tansaction_id }}</td>
+                <td>{{ $tb->m_transaction_id }}</td>
                 <td>{{ $tb->quantity }}</td>
                 <td>{{ $tb->description }}</td>
                 <td>{{ $tb->receiver }}</td>
