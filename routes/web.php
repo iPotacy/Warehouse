@@ -45,20 +45,19 @@ Route::get('/admin', [TransaksiBarangController::class, 'index']);
 // Route view transactions User & Admin
 Route::get('/admin', [barangController::class, 'index']);
 Route::get('/user', [barangController::class, 'index']);
+Route::get('/user/cekBarangIn', [barangController::class, 'index']);
 
-Route::get('/listBarangAdmin', function(){
-    return view('listBarangAdmin');
-});
-
-Route::get('/listStatusAdmin', function(){
-    return view('listStatusAdmin');
+//view admin
+Route::get('admin/formTambahBarang', function(){
+    return view('formTambahBarang');
 });
 
 Route::get('/formTambahTransaksi', function(){
     return view('formTambahTransaksi');
 });
 
-Route::get('/cekBarangIn', function(){
+//Route View user 
+Route::get('user/cekBarangIn', function(){
     return view('cekBarangIn');
 });
 
@@ -66,10 +65,6 @@ Route::get('/cekBarangOut', function(){
     return view('cekBarangOut');
 });
 
-Route::get('/cekBarangCount', function(){
-    return view('cekBarangCount');
-});
-
-Route::get('/cekStatus', function(){
-    return view('cekStatus');
+Route::get('/cekBarangJumlah', function(){
+    return view('cekBarangJumlah');
 });
