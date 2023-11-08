@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\barangController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TransaksiBarangController;
@@ -40,3 +41,35 @@ Route::middleware(['auth'])->group(function(){
 });
 
 Route::get('/admin', [TransaksiBarangController::class, 'index']);
+
+// Route view transactions User & Admin
+Route::get('/admin', [barangController::class, 'index']);
+Route::get('/user', [barangController::class, 'index']);
+
+Route::get('/listBarangAdmin', function(){
+    return view('listBarangAdmin');
+});
+
+Route::get('/listStatusAdmin', function(){
+    return view('listStatusAdmin');
+});
+
+Route::get('/formTambahTransaksi', function(){
+    return view('formTambahTransaksi');
+});
+
+Route::get('/cekBarangIn', function(){
+    return view('cekBarangIn');
+});
+
+Route::get('/cekBarangOut', function(){
+    return view('cekBarangOut');
+});
+
+Route::get('/cekBarangCount', function(){
+    return view('cekBarangCount');
+});
+
+Route::get('/cekStatus', function(){
+    return view('cekStatus');
+});
