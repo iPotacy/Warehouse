@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\barangController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransaksiBarangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 // Route untuk Login & logout Session
 Route::middleware(['guest'])->group( function(){
     Route::get('/',[SessionController::class, 'index'])->name('login');
@@ -36,6 +40,34 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
 });
 
+Route::get('/admin', [TransaksiBarangController::class, 'index']);
+
+// Route view transactions User & Admin
+Route::get('/admin', [barangController::class, 'index']);
+Route::get('/user', [barangController::class, 'index']);
+Route::get('/user/cekBarangIn', [barangController::class, 'index']);
+
+//view admin
+Route::get('admin/formTambahBarang', function(){
+    return view('formTambahBarang');
+});
+
+Route::get('/formTambahTransaksi', function(){
+    return view('formTambahTransaksi');
+});
+
+//Route View user 
+Route::get('user/cekBarangIn', function(){
+    return view('cekBarangIn');
+});
+
+Route::get('/cekBarangOut', function(){
+    return view('cekBarangOut');
+});
+
+Route::get('/cekBarangJumlah', function(){
+    return view('cekBarangJumlah');
+});
 // Route view transactions User & Admin
 Route::get('/admin', [barangController::class, 'index']);
 Route::get('/user', [barangController::class, 'index']);
