@@ -68,3 +68,6 @@ Route::get('/cekBarangOut', function(){
 Route::get('/cekBarangJumlah', function(){
     return view('cekBarangJumlah');
 });
+// Route view transactions User & Admin
+Route::get('/admin', [barangController::class, 'index']);
+Route::get('/user', [barangController::class, 'index']);
