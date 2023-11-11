@@ -12,12 +12,12 @@ class masterItems extends Model
 {
     use HasFactory;
 
-    protected $tabel = 'm_barang';
+    protected $table = 'm_barang';
 
     protected $fillable = ['title'];
 
-    public function TransactionItems(): HasOne
+    public function transactionItems(): HasOne
     {
-        return $this->HasOne(transactionItems::class);
+        return $this->hasOne(transactionItems::class);
     }
 }

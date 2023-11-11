@@ -2,6 +2,7 @@
 @section('content')
 @php
   $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up'];
+  $ar_judul = ['No','Item','Users','Transaction','Quantity','Description','Receiver','Status','Create Up'];
   $no = 1;
 @endphp
 <div class="container">
@@ -30,6 +31,13 @@
               <td>{{ $tb->description }}</td>
               <td>{{ $tb->receiver }}</td>
               <td>{{ $tb->status }}</td>
+              <td>{{ $tb->masterItems->title}}</td>
+              <td>{{ $tb->users->name}}</td>
+              <td>{{ $tb->masterTransaction->title}}</td>
+              <td>{{ $tb->quantity }}</td>
+              <td>{{ $tb->description }}</td>
+              <td>{{ $tb->receiver }}</td>
+              <td>{{ $tb->masterStatus->title}}</td>
               <td>{{ $tb->created_at }}</td>
             </tr>
             @endforeach

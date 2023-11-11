@@ -12,13 +12,31 @@ class transactionItems extends Model
 
     protected $table = 'v_t_barang';
 
-    protected $fillable = [ 'item',
-                            'user',
-                            'transaction',
+    protected $fillable = [ 'm_barang_id',
+                            'm_user_id',
+                            'm_transaction_id',
                             'quantity',
                             'description',
                             'status',
                             'receiver',
-                            'status'
+                            'm_status_id',
+                            'created_at'
                           ];
+    
+    public function masterItems(): BelongsTo
+    {
+        return $this->belongsTo(masterItems::class);
+    }
+    public function masterStatus(): BelongsTo
+    {
+        return $this->belongsTo(masterStatus::class);
+    }
+    public function masterTransaction(): BelongsTo
+    {
+        return $this->belongsTo(masterTransaction::class);
+    }
+    public function users(): BelongsTo
+    {
+        return $this->belongsTo(users::class);
+    }
 }
