@@ -10,27 +10,15 @@ class transactionItems extends Model
 {
     use HasFactory;
 
-    protected $table = 't_barang';
+    protected $table = 'v_t_barang';
 
-    protected $fillable = [ 'barang',
+    protected $fillable = [ 'item',
                             'user',
                             'transaction',
                             'quantity',
                             'description',
+                            'status',
                             'receiver',
                             'status'
                           ];
-    
-    public function masterItems(): belongsTo
-    {
-        return $this->belongsTo(masterItems::class, 'title');
-    }
-    public function masterStatus(): belongsTo
-    {
-        return $this->belongsTo(masterStatus::class, 'title');
-    }
-    public function masterTransaction(): belongsTo
-    {
-        return $this->belongsTo(masterTransaction::class, 'title');
-    }
 }

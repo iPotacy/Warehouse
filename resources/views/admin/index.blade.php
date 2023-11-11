@@ -28,9 +28,9 @@
 
   <main id="main" class="main">
     <h1>Dashboard</h1>
-    @yield('content')
   </main>
-
+  @yield('content')
+  
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
   <script src="{{ asset('backend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
