@@ -5,7 +5,7 @@ use App\Http\Controllers\barangController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TransaksiBarangController;
+
 
 /*
 |--------------------------------------------------------------------------

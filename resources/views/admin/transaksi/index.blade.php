@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('content')
 @php
-  $ar_judul = ['No','Item','User Input','Transaction','Quantity','Description','Receiver','Status','Create Up'];
+  $ar_judul = ['No','Item','Users','Transaction','Quantity','Description','Receiver','Status','Create Up'];
   $no = 1;
 @endphp
 <div class="container">
@@ -23,13 +23,13 @@
             @foreach($transaction as $tb)
             <tr>
               <td>{{ $no++ }}</td>
-              <td>{{ $tb->m_barang_id->title }}</td>
-              <td>{{ $tb->m_user_id->title }}</td>
-              <td>{{ $tb->m_transaction_id->title }}</td>
+              <td>{{ $tb->masterItems->title}}</td>
+              <td>{{ $tb->users->name}}</td>
+              <td>{{ $tb->masterTransaction->title}}</td>
               <td>{{ $tb->quantity }}</td>
               <td>{{ $tb->description }}</td>
               <td>{{ $tb->receiver }}</td>
-              <td>{{ $tb->m_status_id->title }}</td>
+              <td>{{ $tb->masterStatus->title}}</td>
               <td>{{ $tb->created_at }}</td>
             </tr>
             @endforeach

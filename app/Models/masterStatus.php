@@ -16,8 +16,8 @@ class masterStatus extends Model
 
     protected $fillable = ['title'];
 
-    public function TransactionItems(): HasOne
+    public function transactionItems(): HasOne
     {
-        return $this->HasOne(transactionItems::class);
+        return $this->hasOne(transactionItems::class);
     }
 }
