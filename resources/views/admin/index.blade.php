@@ -26,10 +26,10 @@
   
   @include('admin.navbar')
 
-  <main id="main" class="main">
+  <main>
     @yield('content')
   </main>
-
+  
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
   <script src="{{ asset('backend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

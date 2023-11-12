@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function()
     Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
 });
 
-Route::resource('/transaksi', TransactionController::class);
+Route::resource('/transaksi', barangController::class);
 
 // Route view for Admin
 // Route::get('/admin', [barangController::class, 'index']);

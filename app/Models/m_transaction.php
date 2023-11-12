@@ -8,16 +8,18 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class masterStatus extends Model
+class m_transaction extends Model
 {
     use HasFactory;
 
-    protected $table = 'm_status';
-
+    protected $table = 'm_transaction';
+    
     protected $fillable = ['title'];
 
-    public function transactionItems(): HasOne
+    public function tBarang()
     {
-        return $this->hasOne(transactionItems::class);
+        return $this->hasMany(t_barang::class, 'm_transaction_id', 'id');
     }
+
+
 }
