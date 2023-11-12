@@ -14,8 +14,8 @@ class users extends Model
 
     protected $fillable = ['name'];
 
-    public function transactionItems(): HasOne
+    public function users()
     {
-        return $this->hasOne(transactionItems::class);
+        return $this->hasMany(t_barang::class);
     }
 }

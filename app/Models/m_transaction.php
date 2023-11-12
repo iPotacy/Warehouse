@@ -16,9 +16,9 @@ class m_transaction extends Model
     
     protected $fillable = ['title'];
 
-    public function tBarang(): belongsTo
+    public function tBarang()
     {
-        return $this->belongsTo(t_barang::class);
+        return $this->hasMany(t_barang::class, 'm_transaction_id', 'id');
     }
 
 
