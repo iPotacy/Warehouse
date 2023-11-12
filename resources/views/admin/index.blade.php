@@ -30,7 +30,6 @@
     <h1>Dashboard</h1>
     @yield('content')
   </main>
-  @yield('content')
   
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
