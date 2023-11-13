@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BarangController extends Controller
+class ViewBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.barang.index');
+        return view('user.fitur.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view ('admin.transaksi.formTambahBarang');
+        //
     }
 
     /**

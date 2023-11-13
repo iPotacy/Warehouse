@@ -1,25 +1,9 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-</head>
-<body>
-{{-- Untuk judul header pada tabel --}}
-
+@extends('admin.index')
+@section('admin')
   @php
     $ar_judul = ['NO','Title','Status'];
     $no = 1;
   @endphp
-  {{-- Admin Page --}}
-  @if (Auth::user()->role == 'admin')
-  {{-- Navbar --}}
-  @include('navbarAdmin')
-  {{-- Akhir Navbar --}}
 
   <div class="container">
     <div class="row">
@@ -77,6 +61,7 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
   @endif
   {{-- Akhir Admin Page --}}
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -89,3 +74,6 @@
 >>>>>>> 508d39f598de33a77647a3ee1397aad324dc97b6:resources/views/admin/transaksi/formTambahTransaksi.blade.php
 </body>
 </html>
+=======
+@endsection
+>>>>>>> 95b8d9f5787271b80d4bd42fb5cada754647c7e4

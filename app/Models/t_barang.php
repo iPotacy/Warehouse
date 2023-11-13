@@ -25,6 +25,7 @@ class t_barang extends Model
                           ];
     // protected $guarded = [];
     // protected $hidden = ['created_at'];
+    
     // membuat column asing / column tambahan di luar table 
     protected $appends = ['title_barang', 'name', 'title_status', 'title_transaction'];
     
