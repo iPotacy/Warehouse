@@ -25,9 +25,7 @@
 <body style="background-color: #232946">
   
   @include('home.navbar')
-  <main>
-    @yield('user')
-  </main>
+  @include('home.section')
   
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>

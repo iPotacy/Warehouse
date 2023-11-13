@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\barangController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\ViewBarangController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -45,7 +46,10 @@ Route::middleware(['auth'])->group(function()
     Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
 });
 
-Route::resource('/transaksi', barangController::class);
+
+Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
+Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
+Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
 
 // Route view for Admin
 // Route::get('/admin', [barangController::class, 'index']);

@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\m_barang;
+use App\Models\t_barang;
 use Illuminate\Http\Request;
 
-class BarangController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.barang.index');
+        // $tBarang = t_barang::where('m_user_id',2)->with(['mBarang' => function($mbarang){
+        //         $mbarang -> with('barang_keluar');
+        //     }
+        // ])->get();
+        $tBarang = t_barang::all();
+        return view ('admin.transaksi.index', compact('tBarang'));
+        // return response()->json($tBarang);
     }
 
     /**
@@ -19,7 +27,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.transaksi.formTambahTransaksi');
     }
 
     /**
