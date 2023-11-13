@@ -24,10 +24,9 @@
 </head>
 <body style="background-color: #232946">
   
-  @include('admin.navbar')
-
+  @include('home.navbar')
   <main>
-    @yield('content')
+    @yield('admin')
   </main>
   
   <!-- Vendor JS Files -->
