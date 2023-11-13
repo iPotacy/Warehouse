@@ -27,7 +27,6 @@ class BarangController extends Controller
      */
     public function create()
     {
-        echo "masuk";
         return view ('admin.transaksi.formTambahBarang');
     }
 
