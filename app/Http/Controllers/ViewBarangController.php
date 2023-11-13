@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\v_t_barang;
 use Illuminate\Http\Request;
 
 class ViewBarangController extends Controller
@@ -11,7 +12,8 @@ class ViewBarangController extends Controller
      */
     public function index()
     {
-        return view('user.fitur.index');
+        $vBarang = v_t_barang::all();
+        return view('user.fitur.index', compact('vBarang'));
     }
 
     /**

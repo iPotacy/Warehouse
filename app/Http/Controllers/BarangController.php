@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\m_barang;
 
 class BarangController extends Controller
 {
@@ -11,7 +12,8 @@ class BarangController extends Controller
      */
     public function index()
     {
-        return view('admin.barang.index');
+        $mBarang = m_barang::all();
+        return view('admin.barang.index', compact('mBarang'));
     }
 
     /**
