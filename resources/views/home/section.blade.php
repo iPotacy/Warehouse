@@ -1,12 +1,17 @@
 <section id="dashboard">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <p class="text-system">SYSTEM MANAGEMENT WAREHOUSE</p>
                 <p>apa aja</p>
-                <a href="{{url('/view')}}" class="btn"> <i class="bi bi-house-check"></i>  Cek Barang</a>
+                @if (Auth::user()->role == 'admin')
+                <a href="{{ route('transaksi.index') }}" class="btn"> <i class="bi bi-house-check"></i>Transaction</a>
+                @endif
+                @if (Auth::user()->role == 'user')
+                <a href="{{ route('view.index') }}" class="btn"> <i class="bi bi-house-check"></i>Check</a>
+                @endif
             </div>
-            <div class="col-md-6 text-center">
+            <div class="col-md-5 text-center">
                 <img src="{{ asset ('backend/assets/img/warehouse.png')}}" class="img-fluid" alt="">
             </div>
         </div>
