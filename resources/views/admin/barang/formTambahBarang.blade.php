@@ -7,19 +7,19 @@
       <div class="container px-5 my-5">
         <form id="contactForm" data-sb-form-api-token="API_TOKEN" >
           <div class="mb-3">
-            <label class="form-label text-white" for="tittleItem">Tittle Item</label>
-            <input class="form-control" id="tittleItem" type="text" placeholder="Tittle Item" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="tittleItem:required">Tittle Item is required.</div>
+            <label class="form-label text-white" for="tittleItem">Title Item</label>
+            <input class="form-control" id="titleItem" type="text" placeholder="Title Item" data-sb-validations="required" />
+            <div class="invalid-feedback" data-sb-feedback="tittleItem:required">Title Item is required.</div>
           </div>
           <div class="mb-3">
-            <label class="form-label d-block">Status</label>
+            <label class="form-label d-block text-white">Status</label>
             <div class="form-check">
               <input class="form-check-input" id="aktif" type="radio" name="status" data-sb-validations="required" />
-              <label class="form-check-label" for="aktif">aktif</label>
+              <label class="form-check-label text-white" for="aktif">aktif</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" id="tidakAktif" type="radio" name="status" data-sb-validations="required" />
-              <label class="form-check-label" for="tidakAktif">tidak aktif</label>
+              <label class="form-check-label text-white" for="tidakAktif">tidak aktif</label>
             </div>
             <div class="invalid-feedback" data-sb-feedback="status:required">One option is required.</div>
           </div>

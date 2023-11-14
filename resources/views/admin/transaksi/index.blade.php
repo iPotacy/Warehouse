@@ -10,13 +10,13 @@
 
       <h3 class="ms-2 mt-5">All Transaction</h3>
 
-      <a href="{{ route('transaksi.create') }}" class="btn btn-primary btn-sm" title="Tambah Data">
+      <a href="{{ route('transaksi.create') }}" class="btn btn-sm btn-primary active text-uppercase fw-semibold mx-2 p-2" title="Tambah Data">
         <i class="bi bi-clipboard-plus"></i> Tambah
       </a>
 
       <div class="table-responsive my-3">
-        <table class="table table-bordered table-responsive table-hover table-striped table-sm table-md table-lg">
-          <thead class="bg-dark text-warning">
+        <table class="table table-bordered table-responsive table-hover table-primary table-striped table-sm table-md table-lg" id="example">
+          <thead>
             <tr>
               @foreach($ar_judul as $jdl)
                 <th class="text-center" style="white-space: nowrap;">{{$jdl}}</th>

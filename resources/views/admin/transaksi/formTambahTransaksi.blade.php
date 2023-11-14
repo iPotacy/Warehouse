@@ -36,11 +36,9 @@
             </select>
         </div>
       </form>
-    </div>
-    
+    </div>  
   </div>
   <div class="col-md-6">
-
     <div class="container px-4 my-5">
         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
             <div class="mb-3">
@@ -62,7 +60,6 @@
             </div>
         </form>
     </div>
-    
   </div>
   <div class="d-flex justify-content-center">
     <button class="btn btn-sm btn-primary active text-uppercase fw-semibold mx-2 p-2" id="submitButton" type="submit">Submit</button>
