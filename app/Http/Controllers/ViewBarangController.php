@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\v_t_barang;
 use Illuminate\Http\Request;
-use App\Models\m_barang;
 
-class BarangController extends Controller
+class ViewBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $mBarang = m_barang::all();
-        return view('admin.barang.index', compact('mBarang'));
+        $vBarang = v_t_barang::all();
+        return view('user.fitur.index', compact('vBarang'));
     }
 
     /**
@@ -21,7 +21,7 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view ('admin.barang.formTambahBarang');
+        //
     }
 
     /**

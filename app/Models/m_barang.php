@@ -14,7 +14,7 @@ class m_barang extends Model
 
     protected $table = 'm_barang';
 
-    protected $fillable = ['title'];
+    protected $fillable = ['title', 'status'];
 
     // hasMany = "apabila nilai pada suatu column tidak unik / harus sama lebih dari 1";
     // hasOne = "apabila nilai pada suatu column  unik / tidak boleh sama lebih dari 1";
@@ -26,6 +26,6 @@ class m_barang extends Model
 
     public function barang_keluar()
     {
-        return $this->hasOne(VBarangKeluar::class,'m_barang_id','id');
+        return $this->hasOne(v_t_barang::class,'m_barang_id','id');
     }
 }

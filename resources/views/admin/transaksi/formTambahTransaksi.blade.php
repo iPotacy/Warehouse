@@ -1,10 +1,5 @@
 @extends('admin.index')
-@section('content')
-
-  @php
-    $ar_judul = ['NO','Title','Status'];
-    $no = 1;
-  @endphp
+@section('admin')
 
   <div class="container">
     <h3 class="container text-center ms-2 mt-5">Input Transaction</h3>
@@ -15,20 +10,29 @@
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                 <div class="mb-3">
                     <label class="form-label text-white" for="item">Item</label>
-                    <select class="form-select" id="item" aria-label="Item">
+                    <select class="form-select" name="m_barang" aria-label="Item">
                         <option value="Choose Item">Choose Item</option>
+                        @foreach($mBarang as $mb)
+                          <option value="{{ $mb->id }}">{{ $mb->title }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label text-white" for="users">Users</label>
-                    <select class="form-select" id="users" aria-label="Users">
+                    <select class="form-select" name="users" aria-label="Users">
                         <option value="Choose Users">Choose Users</option>
+                        @foreach($users as $u)
+                          <option value="{{ $u->id }}">{{ $u->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label text-white" for="transaction">Transaction</label>
-                    <select class="form-select" id="transaction" aria-label="Transaction">
+                    <select class="form-select" name="m_transaction" aria-label="Transaction">
                         <option value="Choose Transaction">Choose Transaction</option>
+                        @foreach($mTransaction as $mt)
+                          <option value="{{ $mt->id }}">{{ $mt->title }}</option>
+                        @endforeach
                     </select>
                 </div>
             </form>
@@ -51,9 +55,12 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label text-white" for="status">Status</label>
-                    <select class="form-select" id="status" aria-label="Status">
+                    <select class="form-select" name="m_status" aria-label="Status">
                         <option value="Choose Status">Choose Status</option>
                     </select>
+                    @foreach($mTransaction as $mt)
+                      <option value="{{ $mt->id }}">{{ $mt->title }}</option>
+                    @endforeach
                 </div>
             </form>
         </div>
@@ -65,7 +72,4 @@
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-</script>
 @endsection

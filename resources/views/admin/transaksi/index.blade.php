@@ -1,5 +1,5 @@
 @extends('admin.index')
-@section('content')
+@section('admin')
 @php
   $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up'];
   $no = 1;

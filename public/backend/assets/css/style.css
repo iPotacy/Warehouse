@@ -20,7 +20,7 @@ body {
 }
 
 a {
-  color: #fffffe;
+  color: #121629;
   text-decoration: none;
 }
 
@@ -39,12 +39,15 @@ h6 {
   font-family: "Nunito", sans-serif;
 }
 
+.text-blue {
+  color: #121629;
+}
 .color {
-  background-color: #b8c1ec;
+  color: #121629;
 }
 
 span{
-  color: #fffffe;
+  color: #121629;
 }
 
 /*--------------------------------------------------------------
@@ -467,7 +470,11 @@ span{
 --------------------------------------------------------------*/
 .header-nav ul {
   list-style: none;
-  background: transparent;
+}
+
+.header-nav{
+  list-style: none;
+  background: #b8c1ec;
 }
 
 .header-nav>ul {
@@ -580,7 +587,7 @@ span{
   font-size: 18px;
   margin-bottom: 0;
   font-weight: 600;
-  color: #fffffe;
+  color: #121629;
 }
 
 .header-nav .profile .dropdown-header span {
@@ -691,7 +698,13 @@ span{
 .nav-link {
   font-size: 16px;
   font-weight: 600;
-  color: #fffffe;
+  padding: 5px;
+  color: #232946;
+}
+
+.nav-link:hover {
+  color: #121629;
+  border-bottom: 2px solid;
 }
 
 .sidebar-nav .nav-link i {
@@ -714,9 +727,6 @@ span{
   background: #f6f9ff;
 } */
 
-.nav-link:hover {
-  color: #eebbc3;
-}
 
 .sidebar-nav .nav-link:hover i {
   color: #4154f1;
