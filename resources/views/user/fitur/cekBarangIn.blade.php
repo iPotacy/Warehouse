@@ -19,6 +19,12 @@
     {{-- Akhir Navbar --}}
   {{-- Admin Page --}}
   @if (Auth::user()->role == 'user')
+<<<<<<< HEAD:resources/views/cekBarangIn.blade.php
+  {{-- Navbar --}}
+  @include('navbarUser')
+  {{-- Akhir Navbar --}}
+=======
+>>>>>>> 508d39f598de33a77647a3ee1397aad324dc97b6:resources/views/user/fitur/cekBarangIn.blade.php
 
   <div class="container">
     <div class="row">
@@ -58,8 +64,17 @@
   </div>
   @endif
   {{-- Akhir Admin Page --}}
+<<<<<<< HEAD:resources/views/cekBarangIn.blade.php
+  {{-- @endsection --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  </script>
+  </body>
+</html>
+=======
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
 </script>
 </body>
 </html>
+>>>>>>> 508d39f598de33a77647a3ee1397aad324dc97b6:resources/views/user/fitur/cekBarangIn.blade.php

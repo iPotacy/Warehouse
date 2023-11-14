@@ -52,6 +52,7 @@
     <div class="container py-5">
         {{-- ini div untuk mengatur lebar dan padding form dan warna card --}}
         <div class="card bg-dark text-white w-50 center border rounded px-3 py-3 mx-auto ">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
         <h1 align="center">Login</h1>
         <p class="text-white-50" align="center">Please enter your email and password!</p>
         @if($errors->any())
@@ -82,6 +83,7 @@
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
+    </div> 
     </div> 
     </div>
 </body>

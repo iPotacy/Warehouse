@@ -5,9 +5,9 @@
     <div class="col-md-12">
       <h3 class="container text-center ms-2 mt-5">Input Item</h3>
       <div class="container px-5 my-5">
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+        <form id="contactForm" data-sb-form-api-token="API_TOKEN" >
             <div class="mb-3">
-                <label class="form-label" for="tittleItem">Tittle Item</label>
+                <label class="form-label text-white" for="tittleItem">Tittle Item</label>
                 <input class="form-control" id="tittleItem" type="text" placeholder="Tittle Item" data-sb-validations="required" />
                 <div class="invalid-feedback" data-sb-feedback="tittleItem:required">Tittle Item is required.</div>
             </div>

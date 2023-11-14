@@ -72,4 +72,19 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
+  @endif
+  {{-- Akhir Admin Page --}}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+<<<<<<< HEAD:resources/views/formTambahTransaksi.blade.php
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  </script>
+=======
+  integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+</script>
+>>>>>>> 508d39f598de33a77647a3ee1397aad324dc97b6:resources/views/admin/transaksi/formTambahTransaksi.blade.php
+</body>
+</html>
+=======
 @endsection
+>>>>>>> 95b8d9f5787271b80d4bd42fb5cada754647c7e4
