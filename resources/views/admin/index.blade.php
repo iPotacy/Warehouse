@@ -27,8 +27,6 @@
   <main>
     @yield('admin')
   </main>
-
-  @include('admin.footer')
   
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>

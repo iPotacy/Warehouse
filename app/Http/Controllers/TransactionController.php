@@ -30,11 +30,11 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        $mBarang = m_barang::all();
-        $users = users::all();
-        $mStatus = m_status::all();
+        $mBarang = m_barang::all()->where('status', 1);
+        $users = users::all()->where('role', 'admin');
+        $mStatus = m_status::all()->where('status', 1);
         $mTransaction = m_transaction::all();
-        return view ('admin.transaksi.formTambahTransaksi', compact('mBarang,users,mStatus,mTransaction'));
+        return view ('admin.transaksi.formTambahTransaksi', compact('mBarang','users','mStatus','mTransaction'));
     }
 
     /**
