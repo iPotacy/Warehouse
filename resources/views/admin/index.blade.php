@@ -23,7 +23,6 @@
   <link href="{{ asset('backend/assets/css/style.css') }}" rel="stylesheet">
 </head>
 <body style="background-color: #232946">
-  
   @include('home.navbar')
   <main>
     @yield('admin')

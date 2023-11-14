@@ -2,7 +2,6 @@
 @section('admin')
 @php
   $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up'];
-  $ar_judul = ['No','Item','Users','Transaction','Quantity','Description','Receiver','Status','Create Up'];
   $no = 1;
 @endphp
 <div class="container">
