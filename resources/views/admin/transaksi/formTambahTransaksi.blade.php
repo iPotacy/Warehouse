@@ -5,7 +5,6 @@
 <h3 class="container text-center ms-2 mt-5">Input Transaction</h3>
 <div class="row">
   <div class="col-md-6">
-
     <div class="container px-4 my-5">
       <form id="contactForm" data-sb-form-api-token="API_TOKEN">
         <div class="mb-3">
@@ -36,29 +35,29 @@
             </select>
         </div>
       </form>
-    </div>  
+    </div>
   </div>
   <div class="col-md-6">
     <div class="container px-4 my-5">
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-            <div class="mb-3">
-                <label class="form-label text-white" for="quantity">Quantity</label>
-                <input class="form-control" id="quantity" type="text" placeholder="Quantity" data-sb-validations="required" />
-                <div class="invalid-feedback" data-sb-feedback="quantity:required">Quantity is required.</div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="description">Description</label>
-                <textarea class="form-control" id="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
-                <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label text-white" for="status">Status</label>
-                <select class="form-select" name="m_status" aria-label="Status">
-                @foreach ( $mStatus as $ms )
-                <option value="{{ $ms->id }}">{{ $ms->title }}</option>
-                @endforeach
-            </div>
-        </form>
+      <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+          <div class="mb-3">
+              <label class="form-label text-white" for="quantity">Quantity</label>
+              <input class="form-control" id="quantity" type="text" placeholder="Quantity" data-sb-validations="required" />
+              <div class="invalid-feedback" data-sb-feedback="quantity:required">Quantity is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white" for="description">Description</label>
+              <textarea class="form-control" id="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
+              <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
+          </div>
+          <div class="mb-3">
+              <label class="form-label text-white" for="status">Status</label>
+              <select class="form-select" name="m_status" aria-label="Status">
+              @foreach ( $mStatus as $ms )
+              <option value="{{ $ms->id }}">{{ $ms->title }}</option>
+              @endforeach
+          </div>
+      </form>
     </div>
   </div>
   <div class="d-flex justify-content-center">
