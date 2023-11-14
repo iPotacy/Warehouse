@@ -1248,3 +1248,34 @@ span{
   font-size: 13px;
   color: #012970;
 }
+
+/*----Banner----*/
+#dashboard{
+    background-color:  #b8c1ec ;
+    color: #232946;
+    padding-top: 5%;
+}
+
+.text-system{
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 100px;
+}
+
+.btn{
+  background-color: #ECF3FE;
+}
+
+.btn:hover {
+  background-color: #232946; /* Ganti dengan warna yang diinginkan */
+  color: #fff; /* Ganti dengan warna teks yang diinginkan */
+}
+
+/* Gaya ikon dalam tombol */
+.btn i {
+  margin-right: 5px; /* Margin antara ikon dan teks (sesuaikan sesuai kebutuhan) */
+}
+
+.bottom-img{
+  width: 100%;
+}
