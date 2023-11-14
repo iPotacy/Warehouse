@@ -21,6 +21,9 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('backend/assets/css/style.css') }}" rel="stylesheet">
+
+  <!--Link Css-->
+  <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #232946">
   
@@ -41,5 +44,10 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+  <!-- Template Link Datatables -->
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+  <script>new DataTable('#example');</script>
 </body>
 </html>
