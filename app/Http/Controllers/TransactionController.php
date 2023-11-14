@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\m_barang;
+use App\Models\m_status;
+use App\Models\m_transaction;
 use App\Models\t_barang;
+use App\Models\users;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -27,7 +30,11 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        return view ('admin.transaksi.formTambahTransaksi');
+        $mBarang = m_barang::all();
+        $users = users::all();
+        $mStatus = m_status::all();
+        $mTransaction = m_transaction::all();
+        return view ('admin.transaksi.formTambahTransaksi', compact('mBarang,users,mStatus,mTransaction'));
     }
 
     /**

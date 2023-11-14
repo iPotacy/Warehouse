@@ -1,9 +1,5 @@
 @extends('admin.index')
-@section('content')
-@php
-  $ar_judul = ['NO','Title','Status'];
-  $no = 1;
-@endphp
+@section('admin')
 <div class="container">
   <div class="row">
     <div class="col-md-12">
