@@ -25,10 +25,12 @@
 <body style="background-color: #232946">
   
   @include('admin.navbar')
-
+  <h1>Dashboard</h1>
   <main>
     @yield('content')
   </main>
+
+  @include('admin.footer')
   
   <!-- Vendor JS Files -->
   <script src="{{ asset('backend/assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
