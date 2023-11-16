@@ -14,7 +14,10 @@ class m_barang extends Model
 
     protected $table = 'm_barang';
 
-    protected $fillable = ['title', 'status'];
+    protected $fillable = ['title', 'status', 'created_at'];
+
+    public $timestamps = true;
+    const UPDATED_AT = false;
 
     // hasMany = "apabila nilai pada suatu column tidak unik / harus sama lebih dari 1";
     // hasOne = "apabila nilai pada suatu column  unik / tidak boleh sama lebih dari 1";
