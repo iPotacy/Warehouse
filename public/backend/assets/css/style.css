@@ -1262,17 +1262,17 @@ span{
   margin-top: 100px;
 }
 
-.btn{
+.btn-user{
   background-color: #ECF3FE;
 }
 
-.btn:hover {
+.btn-user:hover {
   background-color: #232946; /* Ganti dengan warna yang diinginkan */
   color: #fff; /* Ganti dengan warna teks yang diinginkan */
 }
 
 /* Gaya ikon dalam tombol */
-.btn i {
+.btn-user i {
   margin-right: 5px; /* Margin antara ikon dan teks (sesuaikan sesuai kebutuhan) */
 }
 

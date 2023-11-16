@@ -51,6 +51,10 @@ Route::resource('/transaksi', TransactionController::class)->middleware('userAcc
 Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
 Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
 
+Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
+
+
+
 // Route view for Admin
 // Route::get('/admin', [barangController::class, 'index']);
 

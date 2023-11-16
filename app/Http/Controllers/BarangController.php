@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\m_barang;
+use Illuminate\Support\Facades\DB; // jika pakai query builder
+use Illuminate\Database\Eloquent\Model; //jika pakai eloquent
+use Illuminate\Http\RedirectResponse;
 
 class BarangController extends Controller
 {
@@ -47,7 +50,9 @@ class BarangController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $ar_barang = m_barang::all();
+        $row = m_barang::find($id);
+        return view('admin.barang.form_edit_barang',compact('row','ar_barang'));
     }
 
     /**
@@ -55,8 +60,25 @@ class BarangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'status' => 'required|in:0,1',
+        ]);
+    
+        // Ambil data dari validasi
+        $title = $request->input('title');
+        $status = $request->input('status');
+    
+        // Gunakan data untuk update
+        DB::table('m_barang')->where('id', $id)->update([
+            'title' => $title,
+            'status' => $status,
+        ]);
+    
+        return redirect('/barang')
+                ->with('success', 'Data Asset Berhasil Diubah');
     }
+    
 
     /**
      * Remove the specified resource from storage.
