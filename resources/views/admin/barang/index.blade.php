@@ -33,9 +33,10 @@
               <td>{{ $mb->title }}</td>
               <td>{{ $mb->status }}</td>
               <td>{{ $mb->created_at }}</td>
-              <td><a href="{{route('barang.edit', ['id' => $mb->id])}}" class="btn btn-sm btn-warning active text-uppercase fw-semibold ms-auto p-2" title="Tambah Data">
-                    <i class="bi bi-file-earmark-arrow-up"></i> Update
-                  </a>
+              <td>
+                <a href="{{route('barang.edit', ['id' => $mb->id])}}" class="btn btn-sm btn-warning active text-uppercase fw-semibold ms-auto p-2" title="Tambah Data">
+                  <i class="bi bi-file-earmark-arrow-up"></i> Update
+                </a>
               </td>
             </tr>
             @endforeach
