@@ -60,7 +60,7 @@
       </form>
     </div>
   </div>
-  <div class="d-flex justify-content-center">
+  <div>
     <button class="btn btn-sm btn-primary active text-uppercase fw-semibold mx-2 p-2" id="submitButton" type="submit">Submit</button>
     <a href="{{ route('transaksi.index') }}" class="btn btn-sm btn-danger active text-uppercase fw-semibold mx-2 p-2">Back</a>
   </div>
