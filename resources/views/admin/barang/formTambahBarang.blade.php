@@ -35,7 +35,7 @@
       <div class="row">
         <div class="col-md-5 mt-4 mx-auto">
           <button class="btn btn-sm btn-primary active text-uppercase fw-semibold mx-2 p-2" id="submitButton" type="submit">Submit</button>
-          <a href="{{ route('transaksi.index') }}" class="btn btn-sm btn-danger active text-uppercase fw-semibold mx-2 p-2">Back</a>
+          <a href="{{ route('barang.index') }}" class="btn btn-sm btn-danger active text-uppercase fw-semibold mx-2 p-2">Back</a>
         </div>
       </div>
     </div>

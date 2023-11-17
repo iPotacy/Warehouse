@@ -26,6 +26,7 @@
 </head>
 <body style="background-color: #232946">
   @include('home.navbar')
+  @include('sweetalert::alert')
   <main>
     @yield('admin')
   </main>

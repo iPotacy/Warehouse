@@ -28,13 +28,13 @@
                         @foreach($vBarang as $tb)
                         <tr>
                           <td>{{ $no++ }}</td>
-                          <td>{{ $tb->item }}</td>
-                          <td>{{ $tb->user }}</td>
-                          <td>{{ $tb->transaction }}</td>
+                          <td>{{ $tb->title_barang }}</td>
+                          <td>{{ $tb->name }}</td>
+                          <td>{{ $tb->title_transaction }}</td>
                           <td>{{ $tb->quantity }}</td>
                           <td>{{ $tb->description }}</td>
                           <td>{{ $tb->receiver }}</td>
-                          <td>{{ $tb->status }}</td>
+                          <td>{{ $tb->title_status }}</td>
                           <td>{{ $tb->created_at }}</td>
                         </tr>
                         @endforeach
