@@ -29,10 +29,10 @@
         <hr>
       </div>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
           <p>Transaction</p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <p class="float-end">{{ $show->title_transaction }}
           </p>
         </div>
