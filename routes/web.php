@@ -48,17 +48,9 @@ Route::middleware(['auth'])->group(function()
 
 
 Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
-Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
-Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
+Route::get('generate/{id}', [TransactionController::class, 'transactionPDF']);
 
+Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
 Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
 
-
-
-// Route view for Admin
-// Route::get('/admin', [barangController::class, 'index']);
-
-// Route view for User
-// Route::get('/user', [barangController::class, 'index']);
-// Route::get('/user/cekBarangIn', [barangController::class, 'viewBarang']);
-
+Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');

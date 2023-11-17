@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('admin')
 @php
-  $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up', 'Action'];
+  $ar_judul = ['Item', 'Minggu', 'Bulan'];
   $no = 1;
 @endphp
 <div class="container">
@@ -30,14 +30,7 @@
                       @foreach($tBarang as $tb)
                       <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $tb->title_barang }}</td>
-                        <td>{{ $tb->name }}</td>
-                        <td>{{ $tb->title_transaction }}</td>
-                        <td>{{ $tb->quantity }}</td>
-                        <td>{{ $tb->description }}</td>
-                        <td>{{ $tb->receiver }}</td>
-                        <td>{{ $tb->title_status }}</td>
-                        <td>{{ $tb->created_at }}</td>
+                        
                         <td>
                           <a href="{{ route('transaksi.show', $tb->id) }}" class="btn btn-sm btn-warning active text-uppercase fw-semibold ms-auto" title="View">
                             <i class="bi bi-file-earmark-arrow-up"></i>
