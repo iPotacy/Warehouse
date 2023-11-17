@@ -1351,3 +1351,12 @@ span{
   font-size: 16px;
   padding: 15px 12px;
   vertical-align: middle;
+
+.textarea-style {
+  height: 100px; /* Set the desired height */
+  width: 100%; /* Set the desired width */
+  border: 1px solid #ccc;
+  padding: 8px;
+  overflow-y: auto;
+  white-space: pre-line;
+}
