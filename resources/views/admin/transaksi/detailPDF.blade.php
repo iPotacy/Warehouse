@@ -1,64 +1,102 @@
-<div class="card col-md-5 mx-auto my-5">
-  <div class="card-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10">
-          <p class="my-2" style="font-size: 30px;">Data Transaction</p>
-        </div>
-      </div>
-      <div class="row">
-        <ul class="list-unstyled">
-          <li class="text-muted mt-1"><span class="text-black">Transaction</span> #{{ $generate->id }}</li>
-          <li class="text-black">{{ $generate->created_at }}</li>
-        </ul>
-        <hr>
-        <div class="col-md-10">
-          <p>Items</p>
-        </div>
-        <div class="col-md-2">
-          <p class="float-end">{{ $generate->title_barang }}
-          </p>
-        </div>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-md-9">
-          <p>Transaction</p>
-        </div>
-        <div class="col-md-3">
-          <p class="float-end">{{ $generate->title_transaction }}
-          </p>
-        </div>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-md-9">
-          <p>Receiver</p>
-        </div>
-        <div class="col-md-3">
-          <p class="float-end">{{ $generate->receiver }}
-          </p>
-        </div>
-        <hr>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <p>Description </p>
-        </div>
-        <div class="col-md-9">
-          <div class="text-end textarea-style form-control" contenteditable="true">{{ $generate->description }}
-          </div>
-        </div>
-      </div>
-      <div class="row text-black my-3">
-        <hr style="border: 1px solid black;">
-        <div class="col-xl-12">
-          <p class="float-end fw-bold">Total: {{ $generate->quantity }}
-          </p>
-        </div>
-        <hr style="border: 1px solid black;">
-      </div>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
 
-    </div>
+  .invoice-container {
+    width: 80%;
+    margin: 20px auto;
+    position: relative;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .company-info {
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .footer {
+    text-align: right;
+    margin-bottom: 10px; /* Menambahkan margin-bottom untuk jarak 10px dari total ke tanda tangan */
+  }
+
+  .signature {
+    position: absolute;
+    bottom: 25px; /* Menentukan jarak dari bawah */
+    right: 20px;
+    text-align: center;
+    width: 200px;
+  }
+
+  .signature p {
+    margin: 110px 0;
+  }
+
+  /* Tambahkan gaya tambahan sesuai kebutuhan Anda */
+</style>
+</head>
+<body>
+<div class="invoice-container">
+  <div class="header">
+    <h2>Invoice</h2>
+  </div>
+
+  <div class="company-info">
+    <p>Nama Perusahaan: Warehouse</p>
+    <p>Alamat: MSIB 5</p>
+    <p>Nomor Invoice: {{$generate->id}}</p>
+    <p>{{$generate->created_at}}</p>
+  </div>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Transaction</th>
+        <th>Receiver</th>
+        <th>Description</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Isi tabel disini -->
+      <tr>
+        <td>{{$generate->title_barang}}</td>
+        <td>{{$generate->title_transaction}}</td>
+        <td>{{$generate->receiver}}</td>
+        <td>{{$generate->description}}</td>
+        <td>{{$generate->quantity}}</td>
+      </tr>
+      <!-- Tambahkan baris sesuai dengan jumlah item -->
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <p>Total Amount: {{$generate->quantity}}</p>
+  </div>
+
+  <div class="signature">
+    <p>TTD Verifikasi</p>
+    <p>(Mrs. Kepala Gudang)</p>
   </div>
 </div>
+</body>
