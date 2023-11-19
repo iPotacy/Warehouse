@@ -21,19 +21,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () 
 {
-    return view('welcome');
-});
-// Route untuk Login & logout Session
-Route::middleware(['guest'])->group( function()
-{
-    Route::get('/',[SessionController::class, 'index'])->name('login');
-    Route::post('/',[SessionController::class, 'login']);
+    return view('multiUser');
 });
 
 // Validation untuk tidak kembali login ketika sudah login
 Route::get('/home', function()
 {
     return redirect('/admin');
+});
+
+// Route untuk Login & logout Session
+Route::middleware(['guest'])->group( function()
+{
+    Route::get('/login',[SessionController::class, 'index'])->name('login');
+    Route::post('/login',[SessionController::class, 'login']);
 });
 
 // Route Authentication User
@@ -46,11 +47,11 @@ Route::middleware(['auth'])->group(function()
     Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
 });
 
-
+// Admin 
 Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
-Route::get('generate/{id}', [TransactionController::class, 'transactionPDF']);
-
 Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
-Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
+Route::get('generate/{id}', [TransactionController::class, 'transactionPDF'])->middleware('userAccess:admin');
+Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit')->middleware('userAccess:admin');
 
+// User
 Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
