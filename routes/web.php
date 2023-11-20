@@ -5,6 +5,7 @@ use App\Http\Controllers\barangController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ViewBarangController;
+use App\Http\Controllers\ViewRecordController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,3 +56,5 @@ Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang
 
 // User
 Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
+Route::resource('/record', ViewRecordController::class);
+Route::get('/record/month', [ViewRecordController::class, 'index']);
