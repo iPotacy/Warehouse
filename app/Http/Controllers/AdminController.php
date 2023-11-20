@@ -9,10 +9,10 @@ class AdminController extends Controller
 {
     function admin()
     {
-        return view('home.home');
+        return view('admin.index');
     }
     function user()
     {
-        return view('home.home');
+        return view('user.index');
     }
 }

@@ -45,7 +45,7 @@ class SessionController extends Controller
         }
         else
         {
-            return redirect('')->withErrors('Username dan Password tidak sesuai');
+            return redirect('/login')->withErrors('Username dan Password tidak sesuai');
         }
     }
 

@@ -83,6 +83,11 @@
                 <button name="submit" type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
+        <div class="mb-3 d-grid">
+            <a href="{{ url('/') }}">
+                <button type="submit" class="btn btn-primary"></button>
+            </a>
+        </div>
     </div> 
     </div> 
     </div>
