@@ -1,7 +1,7 @@
 @extends('user.index')
 @section('user')
 @php
-  $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up'];
+  $ar_judul = ['No','Item','Status','Create Up'];
   $no = 1;
 @endphp
 <div class="container">
@@ -11,7 +11,7 @@
               <div class="panel-heading">
                   <div class="row">
                       <div class="col col-md-12">
-                          <h4>Data</h4>
+                          <h4>Item</h4>
                       </div>
                   </div>
               </div>
@@ -29,13 +29,8 @@
                         @foreach($vBarang as $tb)
                         <tr>
                           <td>{{ $no++ }}</td>
-                          <td>{{ $tb->title_barang }}</td>
-                          <td>{{ $tb->name }}</td>
-                          <td>{{ $tb->title_transaction }}</td>
-                          <td>{{ $tb->quantity }}</td>
-                          <td>{{ $tb->description }}</td>
-                          <td>{{ $tb->receiver }}</td>
-                          <td>{{ $tb->title_status }}</td>
+                          <td>{{ $tb->title }}</td>
+                          <td>{{ $tb->status }}</td>
                           <td>{{ $tb->created_at }}</td>
                         </tr>
                         @endforeach
