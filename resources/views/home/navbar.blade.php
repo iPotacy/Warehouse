@@ -27,7 +27,7 @@
                 <a class="nav-link" href="{{ url('/user') }}">Home</a>
               </li>
               <li class="nav-item me-4">
-                <a class="nav-link" href="{{ url('/view') }}">Check Barang</a>
+                <a class="nav-link" href="{{ url('/view') }}">Items</a>
               </li>
               <li class="nav-item me-4">
                 <a class="nav-link" href="{{ url('/record') }}">Record</a>

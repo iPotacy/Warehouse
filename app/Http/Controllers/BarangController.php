@@ -103,6 +103,6 @@ class BarangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+       //
     }
 }
