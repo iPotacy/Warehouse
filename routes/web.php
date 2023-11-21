@@ -57,4 +57,5 @@ Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang
 // User
 Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
 Route::resource('/record', ViewRecordController::class);
-Route::get('/record/month', [ViewRecordController::class, 'index']);
+Route::get('filter', [ViewRecordController::class, 'index'])->name('filter');
+Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel');
