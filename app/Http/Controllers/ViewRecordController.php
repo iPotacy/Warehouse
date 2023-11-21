@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\t_barang;
 use App\Models\users;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB; // jika pakai query builder
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExcelExport;
 class ViewRecordController extends Controller
 {
     /**
@@ -14,16 +16,33 @@ class ViewRecordController extends Controller
      */
     public function index(Request $request)
     {
-        $formDate = $request->input('fromDate');
-        $toDate = $request->input('toDate');
-
-        $query = DB::table('t_barang')->select()
-         ->where('created_at', '>=', $formDate)
-         ->where('created_at', '<=', $toDate)
-         ->get();
+        $rBarang = t_barang::orderBy('id', 'desc')
+        ->when
+        (
+            $request->date_from && $request->date_to,
+            function (Builder $builder) use ($request) 
+            {
+                $builder->whereBetween
+                (
+                    DB::raw('DATE(created_at)'),
+                    [
+                        $request->date_from,
+                        $request->date_to
+                    ]
+                );
+            }
+        )->paginate(5);
         
-        $rBarang = t_barang::orderBy('id', 'desc')->get();
-        return view('user.record.record', compact('rBarang'));
+        return view('user.record.record', compact('rBarang', 'request'));
+    }
+
+    /**
+     * Excel a newly created resource in storage.
+     */
+    public function exportExcel(Request $request)
+    {
+        // dd($request->date_from, $request->date_to);
+        return Excel::download(new ExcelExport($request), 'Record.xlsx');
     }
 
     /**
