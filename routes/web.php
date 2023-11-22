@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\barangController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\ViewBarangController;
@@ -51,11 +52,12 @@ Route::middleware(['auth'])->group(function()
 // Admin 
 Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
 Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
+Route::get('/admin',[AdminController::class, 'stock'])->middleware('userAccess:admin');
 Route::get('generate/{id}', [TransactionController::class, 'transactionPDF'])->middleware('userAccess:admin');
 Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit')->middleware('userAccess:admin');
 
 // User
 Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
-Route::resource('/record', ViewRecordController::class);
-Route::get('filter', [ViewRecordController::class, 'index'])->name('filter');
-Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel');
+Route::resource('/record', ViewRecordController::class)->middleware('userAccess:user');
+Route::get('filter', [ViewRecordController::class, 'index'])->name('filter')->middleware('userAccess:user');
+Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel')->middleware('userAccess:user');
