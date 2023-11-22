@@ -14,7 +14,7 @@
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Warehouse</span></h2>
                 <p class="animate__animated animate__fadeInUp">Optimize all your item for good.</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <a href="#team" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
               </div>
             </div>
           </div>
@@ -24,8 +24,8 @@
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Items</h2>
-                <p class="animate__animated animate__fadeInUp">Check all your items on the menu items</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <p class="animate__animated animate__fadeInUp">Check all the available items</p>
+                <a href="{{ url('/view') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Go</a>
               </div>
             </div>
           </div>
@@ -35,8 +35,8 @@
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Record</h2>
-                <p class="animate__animated animate__fadeInUp">Customize the record of transaction item and export it to Excel</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <p class="animate__animated animate__fadeInUp">See the record of transaction items</p>
+                <a href="{{ url('/record') }}" class="btn-get-started animate__animated animate__fadeInUp scrollto">Go</a>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@
 
       <div class="section-title">
         <h2>About Us</h2>
-        <p>agsnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p class="text-black">This project created by MSIB Batch 5 Nurul Fikri Cipta Inovasi Student By Group 2 Fathan Mubin.</p>
       </div>
 
       <div class="row">
@@ -67,35 +67,35 @@
           <div class="member">
             <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
             <h4 class="text-black">Nata</h4>
-            <p class="text-black">Saya Nata</p>
+            <p class="text-black">Front End</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
                 <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
                 <h4 class="text-black">Qonita</h4>
-                <p class="text-black">Saya Qonita</p>
+                <p class="text-black">Front End</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
                 <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
                 <h4 class="text-black">Mahez</h4>
-                <p class="text-black">Saya Mahez</p>
+                <p class="text-black">PM & Backend</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
                 <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
                 <h4 class="text-black">Tari</h4>
-                <p class="text-black">Saya Tari</p>
+                <p class="text-black">Documentation</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
                 <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
                 <h4 class="text-black">Ulum</h4>
-                <p class="text-black">Saya Ulum</p>
+                <p class="text-black">Documentation</p>
             </div>
         </div>
        
@@ -110,7 +110,7 @@
 
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <p>Found a problem? Contact Us!</p>
       </div>
 
       <div class="row">
