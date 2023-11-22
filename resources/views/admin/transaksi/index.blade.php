@@ -36,7 +36,11 @@
                         <td>{{ $tb->quantity }}</td>
                         <td>{{ $tb->description }}</td>
                         <td>{{ $tb->receiver }}</td>
-                        <td>{{ $tb->title_status }}</td>
+                        @if ($tb->title_status === 'Masuk')
+                          <td><span class="badge bg-success">{{ $tb->title_status }}</span></td>
+                        @else
+                          <td><span class="badge bg-danger">{{ $tb->title_status }}</span></td>
+                        @endif
                         <td>{{ $tb->created_at }}</td>
                         <td>
                           <a href="{{ route('transaksi.show', $tb->id) }}" class="btn btn-sm btn-warning active text-uppercase fw-semibold ms-auto" title="View">

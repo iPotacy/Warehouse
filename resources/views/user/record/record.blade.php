@@ -53,7 +53,11 @@
                                     <td>{{ $record->quantity }}</td>
                                     <td>{{ $record->description }}</td>
                                     <td>{{ $record->receiver }}</td>
-                                    <td>{{ $record->title_status }}</td>
+                                    @if ($record->title_status === 'Masuk')
+                                    <td><span class="badge bg-success">{{ $record->title_status }}</span></td>
+                                    @else
+                                    <td><span class="badge bg-danger">{{ $record->title_status }}</span></td>
+                                    @endif
                                     <td>{{ $record->created_at }}</td>
                                 </tr>
                             @endforeach

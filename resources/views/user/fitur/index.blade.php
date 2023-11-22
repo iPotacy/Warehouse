@@ -30,7 +30,11 @@
                         <tr>
                           <td>{{ $no++ }}</td>
                           <td>{{ $tb->title }}</td>
-                          <td>{{ $tb->status }}</td>
+                          @if ($tb->status === 1)
+                          <td><span class="badge bg-success">Aktif</span></td>
+                          @else
+                          <td><span class="badge bg-danger">Tidak Aktif</span></td>
+                          @endif
                           <td>{{ $tb->created_at }}</td>
                         </tr>
                         @endforeach

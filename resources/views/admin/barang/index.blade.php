@@ -31,7 +31,11 @@
             <tr>
               <td>{{ $no++ }}</td>
               <td>{{ $mb->title }}</td>
-              <td>{{ $mb->status }}</td>
+              @if ($mb->status === 1)
+              <td><span class="badge bg-success">Aktif</span></td>
+              @else
+              <td><span class="badge bg-danger">Tidak Aktif</span></td>
+              @endif
               <td>{{ $mb->created_at }}</td>
               <td>
                 <a href="{{route('barang.edit', ['id' => $mb->id])}}" class="btn btn-sm btn-warning active text-uppercase fw-semibold ms-auto p-2" title="Update Data">
