@@ -21,7 +21,7 @@
                 <a class="nav-link" href="{{ url('/barang') }}">Items</a>
               </li>
               <li class="nav-item me-4">
-                <a class="nav-link" href="{{ url('/register') }}">Register</a>
+                <a class="nav-link" href="{{ url('/users') }}">User</a>
               </li>
               @endif
               

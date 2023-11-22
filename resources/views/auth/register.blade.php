@@ -97,7 +97,7 @@
             </div>
         </form>
         <div class="mb-3 d-grid">
-            <a href="{{ url('/') }}">
+            <a href="{{ url('/users') }}">
                 <button type="submit" class="btn btn-primary">Back</button>
             </a>
         </div>
