@@ -26,9 +26,4 @@ class m_barang extends Model
     {
         return $this->hasMany(t_barang::class,'m_barang_id','id');
     }
-
-    public function barang_keluar()
-    {
-        return $this->hasOne(v_t_barang::class,'m_barang_id','id');
-    }
 }
