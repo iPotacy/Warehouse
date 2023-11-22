@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\m_barang;
+use App\Models\User;
+use App\Models\users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +19,6 @@ class AdminController extends Controller
     {
         return view('user.dashboard');
     }
-
     public function stock()
     {
         $items = DB::select
@@ -45,5 +46,6 @@ class AdminController extends Controller
 
         return view('admin.dashboard', compact('items', 'allItems'));
     }
+
 
 }

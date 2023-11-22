@@ -52,6 +52,8 @@ Route::middleware(['auth'])->group(function()
 // Admin 
 Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
 Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
+Route::get('/register',[SessionController::class, 'create']);
+Route::post('/register',[SessionController::class, 'store']);
 Route::get('/admin',[AdminController::class, 'stock'])->middleware('userAccess:admin');
 Route::get('generate/{id}', [TransactionController::class, 'transactionPDF'])->middleware('userAccess:admin');
 Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit')->middleware('userAccess:admin');
