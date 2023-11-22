@@ -94,7 +94,7 @@ class BarangController extends Controller
         ]);
     
         return redirect('/barang')
-                ->with('success', 'Data Asset Berhasil Diubah');
+                ->with('success', 'Data Barang Berhasil Diubah');
     }
     
 
