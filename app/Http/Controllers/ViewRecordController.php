@@ -31,7 +31,7 @@ class ViewRecordController extends Controller
                     ]
                 );
             }
-        )->paginate(5);
+        )->paginate();
         
         return view('user.record.record', compact('rBarang', 'request'));
     }
