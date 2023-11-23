@@ -1553,6 +1553,7 @@ span{
   font-weight: 700;
   margin-bottom: 2px;
   font-size: 18px;
+  color: black;
 }
 
 .team .member span {
@@ -1565,7 +1566,7 @@ span{
   padding-top: 10px;
   font-size: 14px;
   font-style: italic;
-  color: #aaaaaa;
+  color: black;
 }
 
 .team .member .social {

@@ -55,54 +55,53 @@
     </section><!-- End Hero -->
 <!-- ======= Team Section ======= -->
 <section id="team" class="team section-bg">
-    <div class="container">
+  <div class="container">
 
-      <div class="section-title">
-        <h2>About Us</h2>
-        <p class="text-black">This project created by MSIB Batch 5 Nurul Fikri Cipta Inovasi Student By Group 2 Fathan Mubin.</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
-            <h4 class="text-black">Nata</h4>
-            <p class="text-black">Front End</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-                <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
-                <h4 class="text-black">Qonita</h4>
-                <p class="text-black">Front End</p>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-                <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
-                <h4 class="text-black">Mahez</h4>
-                <p class="text-black">PM & Backend</p>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-                <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
-                <h4 class="text-black">Tari</h4>
-                <p class="text-black">Documentation</p>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-                <img src="{{ asset('backend/assets/img/team-1.jpg') }}" alt="">
-                <h4 class="text-black">Ulum</h4>
-                <p class="text-black">Documentation</p>
-            </div>
-        </div>
-       
-      </div>
-
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p class="text-black">This project created by MSIB Batch 5 Nurul Fikri Cipta Inovasi Student By Group 2 Fathan Mubin.</p>
     </div>
-  </section><!-- End Team Section -->
+
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-stretch">
+        <div class="member">
+          <img src="{{ asset('backend/assets/img/Nata.jpg') }}" class="object-fit-cover border-rounded" alt="">
+          <h4>Nata</h4>
+          <p>Front End</p>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+        <div class="member">
+            <img src="{{ asset('backend/assets/img/Mahez.jpg') }}" alt="">
+            <h4>Mahez</h4>
+            <p>PM & Backend</p>
+        </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+          <div class="member">
+              <img src="{{ asset('backend/assets/img/Qonita.jpg') }}" alt="">
+              <h4>Qonita</h4>
+              <p>Front End</p>
+          </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+          <div class="member">
+              <img src="{{ asset('backend/assets/img/Tari.jpg') }}" alt="">
+              <h4>Tari</h4>
+              <p>Documentation</p>
+          </div>
+      </div>
+      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+          <div class="member">
+              <img src="{{ asset('backend/assets/img/team-1.jpg') }} " alt="">
+              <h4>Ulum</h4>
+              <p>Documentation</p>
+          </div>
+      </div>       
+    </div>
+
+  </div>
+</section><!-- End Team Section -->
 
   <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
