@@ -5,6 +5,7 @@ use App\Http\Controllers\barangController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ViewBarangController;
 use App\Http\Controllers\ViewRecordController;
 use Illuminate\Support\Facades\Route;
@@ -52,11 +53,14 @@ Route::middleware(['auth'])->group(function()
 // Admin 
 Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
 Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
-Route::get('/register',[SessionController::class, 'create']);
-Route::post('/register',[SessionController::class, 'store']);
+Route::resource('/users', UsersController::class)->middleware('userAccess:admin');
+Route::post('/register',[SessionController::class, 'store'])->middleware('userAccess:admin');
+Route::get('/register',[SessionController::class, 'create'])->middleware('userAccess:admin');
 Route::get('/admin',[AdminController::class, 'stock'])->middleware('userAccess:admin');
 Route::get('generate/{id}', [TransactionController::class, 'transactionPDF'])->middleware('userAccess:admin');
 Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit')->middleware('userAccess:admin');
+Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit')->middleware('userAccess:admin');
+Route::delete('/users/destroy/{id}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('userAccess:admin');
 
 // User
 Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');

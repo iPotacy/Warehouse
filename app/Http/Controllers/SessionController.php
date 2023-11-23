@@ -10,12 +10,12 @@ class SessionController extends Controller
 {
     function index()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     function create()
     {
-        return view('register');
+        return view('auth.register');
     }
 
     function store()
@@ -31,7 +31,7 @@ class SessionController extends Controller
 
         $user = User::create(request(['name', 'email', 'password']));
 
-        return redirect()->to('/admin')->withSucces('Succes');
+        return redirect()->to('/users')->withSucces('Succes');
     }
 
     function login(Request $request)
