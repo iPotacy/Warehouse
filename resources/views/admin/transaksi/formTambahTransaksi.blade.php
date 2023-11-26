@@ -1,30 +1,20 @@
 @extends('admin.index')
 @section('admin')
-
-<div class="container">
-  <div class="text-center mt-5">
-  </div>
-  <div class="row">
-    @if($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-          @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
-          @endforeach
-        </ul>
-      </div>
-    @endif
-    <div class="col-lg-7 mx-auto">
-      <div class="container">
-        <form id="contactForm" method="POST" action="{{ route('transaksi.store') }}" enctype="multipart/form-data">
-          @csrf
-          <div class="controls">
+<h4 class="fw-bold py-1 mt-3 ms-4 "><span class="text-muted fw-light">Add Transaction/</span> Transaction</h4>
+<div class="content-wrapper">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <form id="contactForm" method="POST" action="{{ route('transaksi.store') }}" enctype="multipart/form-data">
+      @csrf
+      <div class="col-lg-7">
+        <div class="card mb-4">
+          <h5 class="card-header">Form Controls</h5>
+          <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-label text-white" for="item">Item</label>
-                  <select class="form-select" name="m_barang_id" aria-label="Item">
-                    <option value="Choose Item">Choose Item</option>
+                <div class="mb-3">
+                  <label for="exampleFormControlSelect1" class="form-label">Items</label>
+                  <select name="m_barang_id" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <option selected>Select Items</option>
                     @foreach($mBarang as $mb)
                     @php $barang = ( old('m_barang_id') == $mb->id ) ? 'selected' : ''; @endphp
                     <option value="{{ $mb->id }}">{{ $mb->title }}</option>
@@ -33,13 +23,15 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-label text-white" for="transaction">Transaction</label>
-                  <select class="form-select" name="m_transaction_id" aria-label="Transaction">
-                    <option value="Choose Transaction">Choose Transaction</option>
-                    @foreach($mTransaction as $mt)
-                    @php $transaction = ( old('m_transaction_id') == $mt->id ) ? 'selected' : ''; @endphp
-                    <option value="{{ $mt->id }}">{{ $mt->title }}</option>
+                <div class="mb-3">
+                  <label for="exampleFormControlSelect1" class="form-label">Users</label>
+                  <select name="m_user_id" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <option selected>Select Users</option>
+                    @foreach($users as $u)
+                    @if($u->role == 'admin')
+                      @php $selected = (old('m_user_id') == $u->id) ? 'selected' : ''; @endphp
+                      <option value="{{ $u->id }}" {{ $selected }}>{{ $u->name }}</option>
+                    @endif
                     @endforeach
                   </select>
                 </div>
@@ -47,22 +39,22 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-label text-white" for="users">Users</label>
-                  <select class="form-select" name="m_user_id" aria-label="Users">
-                    <option value="Choose Users">Choose Users</option>
-                    @foreach($users as $u)
-                    @php $users = ( old('m_user_id') == $u->id ) ? 'selected' : ''; @endphp
-                    <option value="{{ $u->id }}">{{ $u->name }}</option>
+                <div class="mb-3">
+                  <label for="exampleFormControlSelect1" class="form-label">Transactions</label>
+                  <select name="m_transaction_id" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <option selected>Select Transaction</option>
+                    @foreach($mTransaction as $mt)
+                    @php $transaction = ( old('m_transaction_id') == $mt->id ) ? 'selected' : ''; @endphp
+                    <option value="{{ $mt->id }}">{{ $mt->title }}</option>
                     @endforeach
                   </select>
                 </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-label text-white" for="status">Status</label>
-                  <select class="form-select" name="m_status_id" aria-label="Status">
-                    <option value="Choose Users">Choose Users</option>
+                <div class="mb-3">
+                  <label for="exampleFormControlSelect1" class="form-label">Status</label>
+                  <select name="m_status_id" class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
+                    <option selected>Select Status</option>
                     @foreach ($mStatus as $ms)
                     @php $status = ( old('m_status_id') == $ms->id ) ? 'selected' : ''; @endphp
                     <option value="{{ $ms->id }}">{{ $ms->title }}</option>
@@ -72,37 +64,45 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-label text-white" for="quantity">Quantity</label>
-                  <input name="quantity" class="form-control" id="quantity" type="text" placeholder="quantity" data-sb-validations="required">
-                  <div class="invalid-feedback" data-sb-feedback="quantity:required">Quantity is required.</div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Quantity"
+                    name="quantity"
+                  />
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="form-label text-white" for="receiver">Receiver</label>
-                  <input name="receiver" class="form-control" id="receiver" type="text" placeholder="receiver" data-sb-validations="required">
-                  <div class="invalid-feedback" data-sb-feedback="receiver:required">Receiver is required.</div>
-                </div>
-              </div>
-                <div class="form-group">
-                  <label class="form-label text-white" for="description">Description</label>
-                  <textarea name="description" class="form-control" id="description" type="text" placeholder="Description" style="height: 10rem;" data-sb-validations="required"></textarea>
-                  <div class="invalid-feedback" data-sb-feedback="description:required">Description is required.</div>
+              <div class="col-md-9">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Receiver</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="exampleFormControlInput1"
+                    placeholder="Receiver Name"
+                    name="receiver"
+                  />
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12 mt-4">
-                <button class="btn btn-sm btn-primary active text-uppercase fw-semibold mx-2 p-2" id="submitButton" type="submit">Submit</button>
-                <a href="{{ route('transaksi.index') }}" class="btn btn-sm btn-danger active text-uppercase fw-semibold mx-2 p-2">Back</a>
-              </div>
+            <div>
+              <label for="exampleFormControlTextarea1" class="form-label">Description Transaction</label>
+              <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
           </div>
-        </form>
+          <div class="container flex-grow-1 mb-4 mt-1">
+            <div class="demo-inline-spacing">
+              <button type="submit" class="btn btn-success">Submit</button>
+              <a href="{{ url('/transaksi') }}" class="btn btn-dark">Back</a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 @endsection
