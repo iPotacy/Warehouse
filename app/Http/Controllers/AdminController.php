@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\m_barang;
+use App\Models\t_barang;
 use App\Models\User;
 use App\Models\users;
 use Illuminate\Http\Request;
@@ -41,10 +42,12 @@ class AdminController extends Controller
             GROUP BY
                 m_barang.id, m_barang.title
         ');
+        
+        $allTransaction = t_barang::orderBy('id', 'desc')->paginate(6);
 
         $allItems = m_barang::where('status', 1)->get();
 
-        return view('admin.dashboard', compact('items', 'allItems'));
+        return view('admin.dashboard', compact('items', 'allItems', 'allTransaction'));
     }
 
 
