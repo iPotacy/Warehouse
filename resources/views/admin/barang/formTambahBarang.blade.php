@@ -1,44 +1,63 @@
 @extends('admin.index')
 @section('admin')
 
-<div class="container form-container">
-  <div class="text-center mt-5">
+<h4 class="fw-bold py-1 mt-3 ms-4 "><span class="text-muted fw-light">Add Item/</span> Item</h4>
+<div class="content-wrapper">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <form id="contactForm" method="POST" action="{{route('barang.store')}}" enctype="multipart/form-data">
+      @csrf
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card mb-4">
+            <h5 class="card-header">Add Item</h5>
+            <div class="card-body">
+              <div>
+                <label for="defaultFormControlInput" class="form-label">Item</label>
+                <input
+                  name="title"
+                  type="text"
+                  class="form-control"
+                  id="defaultFormControlInput"
+                  placeholder="Item"
+                  aria-describedby="defaultFormControlHelp"
+                />
+              </div>
+              <div class="row gy-3">
+                <div class="col-md">
+                  <div class="form-check mt-3">
+                    <input
+                      name="status"
+                      class="form-check-input"
+                      type="radio"
+                      value="1"
+                      id="defaultRadio1"
+                    />
+                    <label class="form-check-label" for="defaultRadio1"> Active </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      name="status"
+                      class="form-check-input"
+                      type="radio"
+                      value="0"
+                      id="defaultRadio2"
+                      checked
+                    />
+                    <label class="form-check-label" for="defaultRadio2"> Not Active </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container flex-grow-1 mb-4 mt-1">
+              <div class="demo-inline-spacing">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <a href="{{ url('/barang') }}" class="btn btn-dark">Back</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <form id="contactForm" method="POST" action="{{route('barang.store')}}" enctype="multipart/form-data">
-    @csrf
-    <div class="controls">
-      <div class="row">
-        <div class="col-md-5 mx-auto">
-          <div class="form-group">
-            <label class="form-label text-white" for="titleItem">Title Item</label>
-            <input class="form-control" name="title" type="text" placeholder="Title Item" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="titleItem:required">Title Item is required.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5 mt-4 mx-auto">
-          <div class="form-group">
-            <label class="form-label d-block text-white">Status</label>
-            <div class="form-check">
-              <input class="form-check-input" id="aktif" type="radio" name="status" value="1" data-sb-validations="required" />
-              <label class="form-check-label text-white" for="aktif">aktif</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" id="tidakAktif" type="radio" name="status" value="0" data-sb-validations="required" />
-              <label class="form-check-label text-white" for="tidakAktif">tidak aktif</label>
-            </div>
-            <div class="invalid-feedback" data-sb-feedback="status:required">One option is required.</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5 mt-4 mx-auto">
-          <button class="btn btn-sm btn-primary active text-uppercase fw-semibold mx-2 p-2" id="submitButton" type="submit">Submit</button>
-          <a href="{{ route('barang.index') }}" class="btn btn-sm btn-danger active text-uppercase fw-semibold mx-2 p-2">Back</a>
-        </div>
-      </div>
-    </div>
-  </form>
 </div>
 @endsection

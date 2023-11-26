@@ -1,122 +1,135 @@
 @extends('admin.index')
 @section('admin')
 
-<div class="p-5">
-  <div class="pagetitle">
-    <h1 class="text-white">Dashboard Admin</h1>
-  </div><!-- End Page Title -->
-
-  <section class="section dashboard">
-    <div class="pagetitle">
-      <h1 class="text-white">Stock</h1>
-    </div><!-- End Page Title -->
-    <div class="row">
-      <div class="col-lg-12">
-
-        <div class="row">
-          @foreach ( $items as $item )
-          @if ($item->stok_barang > 0)
-          <div class="col-xxl-4 col-md-3">
-            <div class="card info-card sales-card">
-              <div class="card-body">
-                <h5 class="card-title">{{ $item->nama_barang }}</h5>
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-calculator-fill"></i>
-                  </div>
-                  <div class="ps-3">
-                    <h6>{{ $item->stok_barang }}</h6>
-                    <span class="text-muted small pt-2 ps-1">Items</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          @endif
-          @endforeach
-        </div>
-
-        <div class="pagetitle">
-          <h1 class="text-white">Items</h1>
-        </div><!-- End Page Title -->
-
-        <div class="row">
-          @foreach ( $allItems as $barang )
-          @if ($barang->status > 0)
-          <div class="col-xxl-4 col-md-3">
-            <div class="card info-card sales-card">
-              <div class="card-body">
-                <h5 class="card-title">Item</h5>
-                <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-calculator-fill"></i>
-                  </div>
-                  <div class="ps-3">
-                    <h6 class="text-muted small pt-2 ps-1">{{ $barang->title }}</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          @endif
-          @endforeach
-        </div>
-  
-        <!-- Status Items-->
-        <div class="col-12">
-          <div class="card recent-sales overflow-auto">
-
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
-            </div>
-
-              @php
-                  $ar_judul = ['No','Title','Created At','Status'];
-                  $no = 1;
-              @endphp
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="row">
+    <div class="col-lg-12 mb-4 order-0">
+      <div class="card">
+        <div class="d-flex align-items-end row">
+          <div class="col-sm-7">
             <div class="card-body">
-              <h5 class="card-title">Status <span>| Today</span></h5>
-
-              <table class="table table-borderless datatable">
-                <thead>
-                  <tr>
-                    @foreach($ar_judul as $jdl)
-                      <th>{{$jdl}}</th>
-                    @endforeach
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><a href="#">1</a></th>
-                    <td>Brandon Jacob</td>
-                    <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                    <td><span class="badge bg-success">Aktif</span></td>
-                  </tr>
-                  <tr>
-                      <th scope="row"><a href="#">2</a></th>
-                      <td>Brandon Jacob</td>
-                      <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                      <td><span class="badge bg-danger">Tidak Aktif</span></td>
-                    </tr>
-                </tbody>
-              </table>
-
+              <h5 class="card-title text-primary">Congratulations {{ Auth::user()->name }}! 🎉</h5>
+              <p class="mb-5">
+                You have done <span class="fw-bold">72%</span> more sales today. Check your new badge in
+                your profile.
+              </p>
             </div>
-
           </div>
-        </div><!-- End Recent Sales -->
-      </div><!-- End Left side columns -->
-
+          <div class="col-sm-5 text-center text-sm-left">
+            <div class="card-body pb-0 px-0 px-md-4">
+              <img
+                src="{{ asset('backend/assets/img/illustrations/man-with-laptop-light.png') }}"
+                height="140"
+                alt="View Badge User"
+                data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                data-app-light-img="illustrations/man-with-laptop-light.png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+  <div class="row">
+    <!-- Order Statistics -->
+    <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
+      <div class="card h-100">
+        <div class="card-header d-flex align-items-center justify-content-between pb-0">
+          <div class="card-title mb-0">
+            <h5 class="m-0 me-2">Stock Items</h5>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-center align-items-center mb-3">
+            <div id="orderStatisticsChart"></div>
+          </div>
+          <ul class="p-0 m-0">
+            @foreach ( $items as $item )
+            @if ($item->stok_barang > 0)
+            <li class="d-flex mb-4 pb-1">
+              <div class="avatar flex-shrink-0 me-3">
+                <span class="avatar-initial rounded bg-label-primary"
+                  ><i class="bx bx-cart"></i
+                ></span>
+              </div>
+              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">{{ $item->nama_barang }}</h6>
+                </div>
+                <div class="user-progress d-flex align-items-center gap-1">
+                  <small class="fw-semibold">{{ $item->stok_barang }}</small>
+                </div>
+              </div>
+              <div id="orderStatisticsChart"></div>
+            </li>
+            @endif
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Order Statistics -->
+
+    <div class="col-md-6 col-lg-4 order-2 mb-4">
+      <div class="card h-100">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="card-title m-0 me-2">Items Active</h5>
+        </div>
+        <div class="card-body">
+          <ul class="p-0 m-0">
+            @foreach ( $allItems as $it )
+            @if ($it->status > 0)
+            <li class="d-flex mb-4 pb-1">
+              <div class="avatar flex-shrink-0 me-3">
+                <img src="{{ asset('backend/assets/img/icons/unicons/chart-success.png') }}" alt="User" class="rounded" />
+              </div>
+              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                <div class="me-2">
+                  <h6 class="mb-0">{{ $it->title }}</h6>
+                </div>
+              </div>
+            </li>
+            @endif
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 order-2 mb-4">
+      <div class="card h-100">
+        <div class="card-header d-flex align-items-center justify-content-between">
+          <h5 class="card-title m-0 me-2">Transactions</h5>
+        </div>
+        <div class="card-body">
+          <ul class="p-0 m-0">
+            @foreach ( $allTransaction as $ts )
+            <li class="d-flex mb-4 pb-1">
+              @if ($ts->title_status == 'Masuk')
+              <div class="avatar flex-shrink-0 me-3">
+                <img src="{{ asset('backend/assets/img/icons/unicons/cc-success.png') }}" alt="User" class="rounded" />
+              </div>
+              @elseif ($ts->title_status == 'Keluar')
+              <div class="avatar flex-shrink-0 me-3">
+                <img src="{{ asset('backend/assets/img/icons/unicons/cc-warning.png') }}" alt="User" class="rounded" />
+              </div>
+              @endif
+              <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                <div class="me-2">
+                  <small class="text-muted d-block mb-1">{{ $ts->title_status }}</small>
+                  <h6 class="mb-0">{{ $ts->title_barang }}</h6>
+                </div>
+                <div class="user-progress d-flex align-items-center gap-1">
+                  <h6 class="mb-0">{{ $ts->quantity }}</h6>
+                </div>
+              </div>
+            </li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 @endsection
