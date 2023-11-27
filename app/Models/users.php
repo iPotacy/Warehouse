@@ -12,7 +12,7 @@ class users extends Model
     use HasFactory;
     protected $table = 'users';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'eamil', 'password', 'role'];
 
     public function users()
     {

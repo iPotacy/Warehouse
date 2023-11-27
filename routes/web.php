@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\barangController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ViewBarangController;
+use App\Http\Controllers\ViewRecordController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,46 +22,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route Utama
 Route::get('/', function () 
 {
-    return view('welcome');
-});
-// Route untuk Login & logout Session
-Route::middleware(['guest'])->group( function()
-{
-    Route::get('/',[SessionController::class, 'index'])->name('login');
-    Route::post('/',[SessionController::class, 'login']);
+    return view('multiUser');
 });
 
-// Validation untuk tidak kembali login ketika sudah login
-Route::get('/home', function()
-{
+// Middleware untuk validasi tidak kembali login ketika sudah login
+Route::get('/home', function () {
     return redirect('/admin');
 });
 
-// Route Authentication User
-Route::middleware(['auth'])->group(function()
+// Route Login & Logout Session
+Route::middleware(['guest'])->group(function () 
 {
-    // Logout
-    Route::get('/logout',[SessionController::class, 'logout']);
-    // Route untuk User & Admin
-    Route::get('/admin',[AdminController::class, 'admin'])->middleware('userAccess:admin');
-    Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
+    Route::get('/login', [SessionController::class, 'index'])->name('login');
+    Route::post('/login', [SessionController::class, 'login']);
 });
 
+// Route Authentication User
+Route::middleware(['auth'])->group(function () 
+{
+    // Logout
+    Route::get('/logout', [SessionController::class, 'logout']);
 
-Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
-Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
-Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
+    // Route untuk User & Admin
+    Route::middleware('userAccess:admin')->group(function () 
+    {
+        Route::get('/admin', [AdminController::class, 'admin']);
+        Route::resource('/transaksi', TransactionController::class);
+        Route::resource('/barang', barangController::class);
+        Route::resource('/users', UsersController::class);
+        Route::post('/register', [SessionController::class, 'store']);
+        Route::get('/register', [SessionController::class, 'create']);
+        Route::get('/admin', [AdminController::class, 'stock']);
+        Route::get('generate/{id}', [TransactionController::class, 'transactionPDF']);
+        Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
+        Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit');
+        Route::delete('/users/destroy/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+    });
 
-Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
-
-
-
-// Route view for Admin
-// Route::get('/admin', [barangController::class, 'index']);
-
-// Route view for User
-// Route::get('/user', [barangController::class, 'index']);
-// Route::get('/user/cekBarangIn', [barangController::class, 'viewBarang']);
-
+    // Route untuk User
+    Route::middleware('userAccess:user')->group(function () 
+    {
+        Route::get('/user', [AdminController::class, 'user']);
+        Route::resource('/view', ViewBarangController::class);
+        Route::resource('/record', ViewRecordController::class);
+        Route::get('filter', [ViewRecordController::class, 'index'])->name('filter');
+        Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel');
+    });
+});

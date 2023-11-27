@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Http\Request;
 
 class t_barang extends Model
 {
@@ -18,7 +19,6 @@ class t_barang extends Model
                             'm_transaction_id',
                             'quantity',
                             'description',
-                            'status',
                             'receiver',
                             'm_status_id',
                             'created_at',
@@ -31,7 +31,7 @@ class t_barang extends Model
     
     // Attribute
     public function getTitleBarangAttribute(){
-        return $this->mBarang->title ?? null;
+        return $this->mBarang->title;
     }
     public function getTitleStatusAttribute(){
         return $this->mStatus->title ?? null;
@@ -46,7 +46,7 @@ class t_barang extends Model
     // Elequont RelationShip
     public function mBarang(): hasOne
     {
-        return $this->hasOne(m_barang::class,'id','m_barang_id')->where('status', 1);
+        return $this->hasOne(m_barang::class,'id','m_barang_id');
     }
     public function mStatus(): hasOne
     {

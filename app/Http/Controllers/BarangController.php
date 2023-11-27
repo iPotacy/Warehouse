@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\m_barang;
 use Illuminate\Support\Facades\DB; // jika pakai query builder
-use Illuminate\Database\Eloquent\Model; //jika pakai eloquent
-use Illuminate\Http\RedirectResponse;
 
 class BarangController extends Controller
 {
@@ -34,7 +32,27 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'status' => 'required|in:0,1', // Validasi untuk memastikan nilai yang sesuai dengan tipe tinyint
+        ]);
+    
+        try{
+            DB::table('m_barang')->insert(
+                [
+                    'title'=>$request->title,
+                    'status'=>$request->status,
+                    //'created_at'=>now(),
+                ]);
+        
+            return redirect()->route('barang.index')
+                            ->with('success','Data Item Baru Berhasil Disimpan');
+        }
+        catch (\Exception $e){
+            //return redirect()->back()
+            return redirect()->route('barang.index')
+                ->with('error', 'Terjadi Kesalahan Saat Input Data!');
+        }  
     }
 
     /**
@@ -76,7 +94,7 @@ class BarangController extends Controller
         ]);
     
         return redirect('/barang')
-                ->with('success', 'Data Asset Berhasil Diubah');
+                ->with('success', 'Data Barang Berhasil Diubah');
     }
     
 
@@ -85,6 +103,6 @@ class BarangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+       //
     }
 }
