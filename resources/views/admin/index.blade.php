@@ -30,7 +30,11 @@
   <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/apex-charts/apex-charts.css') }}" />
 
   <!-- Page CSS -->
-
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css') }}">
   <!-- Helpers -->
   <script src="{{ asset('backend/assets/vendor/js/helpers.js') }}"></script>
 
@@ -39,7 +43,7 @@
   <script src="{{ asset('backend/assets/js/config.js') }}"></script>
   
   <!--Link Css-->
-  <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="{{ asset('backend/assets/DataTables/datatables.min.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -71,13 +75,17 @@
 
   <!-- Main JS -->
   <script src="{{ asset('backend/assets/js/main.js') }}"></script>
-
+  <script src="{{ asset('backend/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/tables-datatables-basic.js') }}"></script>
   <!-- Page JS -->
   <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
-
+  <script src="{{ asset('backend/assets/DataTables/datatables.min.js') }}"></script>
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
-  
-  <script>new DataTable('#example');</script>
+  <script>
+    $(document).ready(function() {
+        $('.dataTable').DataTable();
+    });
+  </script>
 </body>
 </html>

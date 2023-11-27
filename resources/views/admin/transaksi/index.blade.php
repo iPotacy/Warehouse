@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('admin')
 @php
-  $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up', 'Action'];
+  $ar_judul = ['No','Item','User','Transaction','Quantity','Receiver','Status','Tgl', 'Action'];
   $no = 1;
 @endphp
 <h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Input Transaction /</span> Transaction</h4>
@@ -15,8 +15,8 @@
           </li>
         </ul>
       </div>
-      <div class="table-responsive text-nowrap">
-        <table class="table table-striped">
+      <div class="card-datatable table-responsive">
+        <table class="dataTable datatables-basic table table-striped border-top">
           <thead>
             <tr>
               @foreach($ar_judul as $jdl)
@@ -27,7 +27,7 @@
           <tbody class="table-border-bottom-0">
             @foreach($tBarang as $tb)
             <tr>
-              <td>{{ $no++ }}</td>
+              <td >{{ $no++ }}</td>
               <td
                 style=" max-width: 110px; 
                         overflow: hidden; 
@@ -47,14 +47,6 @@
               </td>
               @endif
               <td>{{ $tb->quantity }}</td>
-              <td 
-                style="max-width: 150px; 
-                       overflow: hidden; 
-                       white-space: nowrap; 
-                       text-overflow: ellipsis;"
-              >
-              {{ $tb->description }}
-              </td>
               <td>{{ $tb->receiver }}</td>
               @if ($tb->title_status === 'Masuk')
               <td>
@@ -65,8 +57,8 @@
                 <span class="badge bg-label-danger me-1">Dispatched</span>
               </td>
               @endif
-              <td>{{ $tb->created_at->format('d-m-Y') }}</td>
-              <td>
+              <td style="max-width: 150px; white-space: nowrap;">{{ $tb->created_at->format('d-m-Y') }}</td>
+              <td style="max-width: 150px; white-space: nowrap;">
                 <div class="dropdown">
                   <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                     <i class="bx bx-dots-vertical-rounded"></i>

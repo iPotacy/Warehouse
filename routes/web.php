@@ -22,48 +22,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route Utama
 Route::get('/', function () 
 {
     return view('multiUser');
 });
 
-// Validation untuk tidak kembali login ketika sudah login
-Route::get('/home', function()
-{
+// Middleware untuk validasi tidak kembali login ketika sudah login
+Route::get('/home', function () {
     return redirect('/admin');
 });
 
-// Route untuk Login & logout Session
-Route::middleware(['guest'])->group( function()
+// Route Login & Logout Session
+Route::middleware(['guest'])->group(function () 
 {
-    Route::get('/login',[SessionController::class, 'index'])->name('login');
-    Route::post('/login',[SessionController::class, 'login']);
+    Route::get('/login', [SessionController::class, 'index'])->name('login');
+    Route::post('/login', [SessionController::class, 'login']);
 });
 
 // Route Authentication User
-Route::middleware(['auth'])->group(function()
+Route::middleware(['auth'])->group(function () 
 {
     // Logout
-    Route::get('/logout',[SessionController::class, 'logout']);
+    Route::get('/logout', [SessionController::class, 'logout']);
+
     // Route untuk User & Admin
-    Route::get('/admin',[AdminController::class, 'admin'])->middleware('userAccess:admin');
-    Route::get('/user',[AdminController::class, 'user'])->middleware('userAccess:user');
+    Route::middleware('userAccess:admin')->group(function () 
+    {
+        Route::get('/admin', [AdminController::class, 'admin']);
+        Route::resource('/transaksi', TransactionController::class);
+        Route::resource('/barang', barangController::class);
+        Route::resource('/users', UsersController::class);
+        Route::post('/register', [SessionController::class, 'store']);
+        Route::get('/register', [SessionController::class, 'create']);
+        Route::get('/admin', [AdminController::class, 'stock']);
+        Route::get('generate/{id}', [TransactionController::class, 'transactionPDF']);
+        Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
+        Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit');
+        Route::delete('/users/destroy/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+    });
+
+    // Route untuk User
+    Route::middleware('userAccess:user')->group(function () 
+    {
+        Route::get('/user', [AdminController::class, 'user']);
+        Route::resource('/view', ViewBarangController::class);
+        Route::resource('/record', ViewRecordController::class);
+        Route::get('filter', [ViewRecordController::class, 'index'])->name('filter');
+        Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel');
+    });
 });
-
-// Admin 
-Route::resource('/transaksi', TransactionController::class)->middleware('userAccess:admin');
-Route::resource('/barang', barangController::class)->middleware('userAccess:admin');
-Route::resource('/users', UsersController::class)->middleware('userAccess:admin');
-Route::post('/register',[SessionController::class, 'store'])->middleware('userAccess:admin');
-Route::get('/register',[SessionController::class, 'create'])->middleware('userAccess:admin');
-Route::get('/admin',[AdminController::class, 'stock'])->middleware('userAccess:admin');
-Route::get('generate/{id}', [TransactionController::class, 'transactionPDF'])->middleware('userAccess:admin');
-Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit')->middleware('userAccess:admin');
-Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit')->middleware('userAccess:admin');
-Route::delete('/users/destroy/{id}', [UsersController::class, 'destroy'])->name('users.destroy')->middleware('userAccess:admin');
-
-// User
-Route::resource('/view', ViewBarangController::class)->middleware('userAccess:user');
-Route::resource('/record', ViewRecordController::class)->middleware('userAccess:user');
-Route::get('filter', [ViewRecordController::class, 'index'])->name('filter')->middleware('userAccess:user');
-Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel')->middleware('userAccess:user');

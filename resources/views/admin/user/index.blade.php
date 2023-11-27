@@ -16,8 +16,8 @@
           </li>
         </ul>
       </div>
-      <div class="table-responsive text-nowrap">
-        <table class="table table-striped">
+      <div class="card-datatable table-responsive">
+        <table class="dataTable datatables-basic table table-striped border-top">
           <thead>
             <tr>
               @foreach($ar_judul as $jdl)
