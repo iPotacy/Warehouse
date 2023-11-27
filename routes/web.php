@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 // Route Utama
 Route::get('/', function () 
 {
-    return view('multiUser');
+    return view('home.section');
 });
 
 // Middleware untuk validasi tidak kembali login ketika sudah login
