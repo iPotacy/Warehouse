@@ -65,28 +65,28 @@
     <div class="row">
       <div class="col-md-4 d-flex align-items-stretch">
         <div class="member">
-          <img src="{{ asset('backend/assets/img/Nata.jpg') }}" class="object-fit-cover border-rounded" alt="">
+          <img src="{{ asset('backend/assets/img/4.jpg') }}" alt="">
           <h4>Nata</h4>
           <p>Front End</p>
         </div>
       </div>
       <div class="col-md-4 d-flex align-items-stretch">
         <div class="member">
-            <img src="{{ asset('backend/assets/img/Mahez.jpg') }}" class="object-fit-cover border-rounded" alt="">
+            <img src="{{ asset('backend/assets/img/1.jpg') }}" alt="">
             <h4>Mahez</h4>
             <p>PM & Backend</p>
         </div>
       </div>
       <div class="col-md-4 d-flex align-items-stretch">
           <div class="member">
-              <img src="{{ asset('backend/assets/img/Qonita.jpg') }}" class="object-fit-cover border-rounded" alt="">
+              <img src="{{ asset('backend/assets/img/2.jpg') }}" alt="">
               <h4>Qonita</h4>
               <p>Front End</p>
           </div>
       </div>
       <div class="col-md-4 d-flex align-items-stretch">
           <div class="member">
-              <img src="{{ asset('backend/assets/img/Tari.jpg') }}" class="object-fit-cover border-rounded" alt="">
+              <img src="{{ asset('backend/assets/img/3.jpg') }}" alt="">
               <h4>Tari</h4>
               <p>Documentation</p>
           </div>

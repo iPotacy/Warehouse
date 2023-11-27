@@ -4,49 +4,53 @@
   $ar_judul = ['No','Title','Status','Created At','Action'];
   $no = 1;
 @endphp
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="panel">
-      <div class="panel-heading">
-        <div class="row">
-            <div class="col col-md-3">
-              <a href="{{ route('barang.create') }}" class="btn btn-sm btn-primary active text-uppercase fw-semibold ms-auto p-2" title="Tambah Data">
-                <i class="bi bi-clipboard-plus"></i> Tambah
-              </a>
-            </div>
-        </div>
+<h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Form Items/</span> Items</h4>
+<div class="content-wrapper">
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <div class="card">
+      <div class="container flex-grow-1 mb-4 mt-4">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ route('barang.create') }}"><i class="bx bx-plus me-1"></i> Add...</a>
+          </li>
+        </ul>
       </div>
-      <div class="panel-body table-responsive">
-        <table id="example" class="table table-hover table-bordered">
+      <div class="card-datatable table-responsive">
+        <table class="dataTable datatables-basic table table-striped border-top">
           <thead>
             <tr>
               @foreach($ar_judul as $jdl)
-                <th style="background-color: #b8c1ec">{{$jdl}}</th>
+              <th>{{ $jdl }}</th>
               @endforeach
             </tr>
           </thead>
-          <tbody>
+          <tbody class="table-border-bottom-0">
             @foreach($mBarang as $mb)
             <tr>
               <td>{{ $no++ }}</td>
               <td>{{ $mb->title }}</td>
               @if ($mb->status === 1)
-              <td><span class="badge bg-success">Aktif</span></td>
+              <td><span class="badge bg-label-success me-1">Active</span></td>
               @else
-              <td><span class="badge bg-danger">Tidak Aktif</span></td>
+              <td><span class="badge bg-label-danger me-1">Not Active</span></td>
               @endif
-              <td>{{ $mb->created_at }}</td>
+              <td>{{ $mb->created_at->format('d-m-Y') }}</td>
               <td>
-                <a href="{{route('barang.edit', ['id' => $mb->id])}}" class="btn btn-sm btn-warning active text-uppercase fw-semibold ms-auto p-2" title="Update Data">
-                  <i class="bi bi-file-earmark-arrow-up"></i> Update
-                </a>
+                <div class="dropdown">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                    <i class="bx bx-dots-vertical-rounded"></i>
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ route('barang.edit', ['id' => $mb->id]) }}"
+                      ><i class="bx bx-edit-alt me-1"></i>Update</a
+                    >
+                  </div>
+                </div>
               </td>
             </tr>
             @endforeach
           </tbody>
         </table>
-      </div>
       </div>
     </div>
   </div>

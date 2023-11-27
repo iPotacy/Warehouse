@@ -1,45 +1,62 @@
 @extends('user.index')
 @section('user')
 @php
-  $ar_judul = ['No','Item','User','Transaction','Quantity','Description','Receiver','Status','Create Up'];
+  $ar_judul = ['No','Item','User','Transaction','Quantity','Receiver','Status','Create Up'];
   $no = 1;
 @endphp
 
-<div class="container">
-    <div class="row py-3 ms-3">
-        <div class="col-md-4 text-right">
-            <a href="{{ url('/record') }}" class="btn btn-secondary mr-2">Reset</a>
-            <form action="{{ route('excel') }}" method="get" style="display: inline-block;">
-                <input type="hidden" name="date_from" class="form-control" value="{{ $request->date_from }}">
-                <input type="hidden" name="date_to" class="form-control" value="{{ $request->date_to }}">
-                <button type="submit" class="btn btn-success">Export Excel</button>
-            </form>
-        </div>
-    </div>
-    <form action="{{ route('filter') }}" method="get" class="form-inline">
-        <div class="row ms-3">
-            <div class="form-group col-md-3">
-                <label for="date_from" class="mr-2">Date From</label>
-                <input type="date" name="date_from" class="form-control" value="{{ $request->date_from }}">
-            </div>
-            <div class="form-group col-md-3">
-                <label for="date_to" class="mr-2">Date To</label>
-                <input type="date" name="date_to" class="form-control" value="{{ $request->date_to }}">
-            </div>
-            <div class="col-md-2 form-group" style="margin-top:25px;">
-                <input type="submit" value="Search" class="btn btn-primary">
-            </div>
-        </div>
-    </form>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel">
-                <div class="panel-body table-responsive">
-                    <table id="example" class="table table-hover table-bordered">
+<h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Input Transaction /</span> Transaction</h4>
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="card">
+            <div class="card-datatable table-responsive">
+                <div class="card-header flex-column flex-md-row">
+                    <div class="row align-items-end">
+                        <div class="col-md-9">
+                            <form id="contactForm" action="{{ route('filter') }}" method="get">
+                                <div class="row align-items-end">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="date_from" class="mr-2">Date From</label>
+                                                <input type="date" name="date_from" class="form-control" value="{{ $request->date_from }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <label for="date_to" class="mr-2">Date To</label>
+                                                <input type="date" name="date_to" class="form-control" value="{{ $request->date_to }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="mb-3">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3 text-end">
+                                <a href="{{ url('/record') }}" class="btn btn-secondary mr-2">Reset</a>
+                                <form action="{{ route('excel') }}" method="get" style="display: inline-block;">
+                                    <input type="hidden" name="date_from" class="form-control" value="{{ $request->date_from }}">
+                                    <input type="hidden" name="date_to" class="form-control" value="{{ $request->date_to }}">
+                                    <button type="submit" class="btn btn-success">Export</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="dataTable datatables-basic table table-striped border-top">
                         <thead>
                             <tr>
                                 @foreach($ar_judul as $jdl)
-                                    <th style="background-color: #b8c1ec">{{$jdl}}</th>
+                                    <th>{{$jdl}}</th>
                                 @endforeach
                             </tr>
                         </thead>
@@ -49,23 +66,35 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $record->title_barang }}</td>
                                     <td>{{ $record->name }}</td>
-                                    <td>{{ $record->title_transaction }}</td>
+                                    @if ($record->title_transaction === 'Barang Masuk')
+                                    <td>
+                                        <span class="badge bg-label-info me-1">Masuk</span>
+                                    </td>
+                                    @else
+                                    <td>
+                                        <span class="badge bg-label-warning me-1">Keluar</span>
+                                    </td>
+                                    @endif
                                     <td>{{ $record->quantity }}</td>
-                                    <td>{{ $record->description }}</td>
                                     <td>{{ $record->receiver }}</td>
                                     @if ($record->title_status === 'Masuk')
-                                    <td><span class="badge bg-success">{{ $record->title_status }}</span></td>
+                                    <td>
+                                        <span class="badge bg-label-success me-1">Received</span>
+                                    </td>
                                     @else
-                                    <td><span class="badge bg-danger">{{ $record->title_status }}</span></td>
+                                    <td>
+                                        <span class="badge bg-label-danger me-1">Dispatched</span>
+                                    </td>
                                     @endif
-                                    <td>{{ $record->created_at }}</td>
+                                    <td>{{ $record->created_at->format('d-m-Y') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div>   
         </div>
     </div>
 </div>
 @endsection
+
