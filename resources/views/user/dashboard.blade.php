@@ -12,7 +12,7 @@
           <div class="carousel-item active" style="background-image: url(assets/img/slide/1.jpg)">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Warehouse</span></h2>
+                <h2 class="animate__animated animate__fadeInDown">Welcome</h2>
                 <p class="animate__animated animate__fadeInUp">Optimize all your item for good.</p>
                 <a href="#team" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
               </div>
@@ -58,7 +58,7 @@
   <div class="container">
 
     <div class="section-title">
-      <h2>About Us</h2>
+      <h2>About</h2>
       <p class="text-black">This project created by MSIB Batch 5 Nurul Fikri Cipta Inovasi Student By Group 2 Fathan Mubin.</p>
     </div>
 
@@ -70,30 +70,30 @@
           <p>Front End</p>
         </div>
       </div>
-      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+      <div class="col-md-4 d-flex align-items-stretch">
         <div class="member">
-            <img src="{{ asset('backend/assets/img/Mahez.jpg') }}" alt="">
+            <img src="{{ asset('backend/assets/img/Mahez.jpg') }}" class="object-fit-cover border-rounded" alt="">
             <h4>Mahez</h4>
             <p>PM & Backend</p>
         </div>
       </div>
-      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+      <div class="col-md-4 d-flex align-items-stretch">
           <div class="member">
-              <img src="{{ asset('backend/assets/img/Qonita.jpg') }}" alt="">
+              <img src="{{ asset('backend/assets/img/Qonita.jpg') }}" class="object-fit-cover border-rounded" alt="">
               <h4>Qonita</h4>
               <p>Front End</p>
           </div>
       </div>
-      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+      <div class="col-md-4 d-flex align-items-stretch">
           <div class="member">
-              <img src="{{ asset('backend/assets/img/Tari.jpg') }}" alt="">
+              <img src="{{ asset('backend/assets/img/Tari.jpg') }}" class="object-fit-cover border-rounded" alt="">
               <h4>Tari</h4>
               <p>Documentation</p>
           </div>
       </div>
-      <div class="col-md-4 d-flex align-items-stretch object-fit-md-contain">
+      <div class="col-md-4 d-flex align-items-stretch">
           <div class="member">
-              <img src="{{ asset('backend/assets/img/team-1.jpg') }} " alt="">
+              <img src="{{ asset('backend/assets/img/team-1.jpg') }} " class="object-fit-cover border-rounded" alt="">
               <h4>Ulum</h4>
               <p>Documentation</p>
           </div>
