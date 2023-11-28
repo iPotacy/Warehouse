@@ -35,7 +35,7 @@ class AdminController extends Controller
         
         $allTransaction = t_barang::orderBy('id', 'desc')->paginate(6);
 
-        $allItems = m_barang::where('status', 1)->get();
+        $allItems = m_barang::where('status', 1)->get(); 
 
         return view('admin.dashboard', compact('items', 'allItems', 'allTransaction'));
     }

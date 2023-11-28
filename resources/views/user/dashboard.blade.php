@@ -10,7 +10,8 @@
           <div class="col-sm-7">
             <div class="card-body">
               <h5 class="card-title text-primary">Welcome {{ Auth::user()->name }}! 🎉</h5>
-              <p class="mb-5"> </p>
+              <p class="mb-5">Optimalkan efisiensi gudangmu dengan fitur record.</p>
+              <p class="mb-5">Lacak setiap perpindahan barang, dari penerimaan hingga pengiriman, dengan mudah dan akurat</p>
             </div>
           </div>
           <div class="col-sm-5 text-center text-sm-left">

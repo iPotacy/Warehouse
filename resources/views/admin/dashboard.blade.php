@@ -60,7 +60,6 @@
                   <small class="fw-semibold">{{ $item->stok_barang }}</small>
                 </div>
               </div>
-              <div id="orderStatisticsChart"></div>
             </li>
             @endif
             @endforeach
@@ -129,7 +128,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 @endsection
