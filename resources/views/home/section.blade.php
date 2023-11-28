@@ -42,20 +42,20 @@
         <a href="{{ url('/')}}" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1>WAREHOUSE<span>.</span></h1>
+            <h4>Warehouse<span>.</span></h4>
         </a>
 
-        <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar mx-auto">
             <ul>
 
             <li><a class="nav-link scrollto" href="#hero-animated">Home</a></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto mx-3" href="#about">About</a></li>
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav><!-- .navbar -->
-
-        <a class="btn-getstarted scrollto" href="{{ url('/login') }}">Login</a>
+        
+        <a class="btn btn-getstarted ms-5" href="{{ url('/login') }}">Login</a>
 
         </div>
     </header><!-- End Header -->
@@ -65,7 +65,6 @@
           <img src="{{ asset('section/assets/img/section.png')}}" class="img-fluid animated">
           <h2>Welcome to <span>Warehouse Management System</span></h2>
           <div class="d-flex">
-            <a href="{{ url('/login') }}" class="btn-get-started scrollto">Login</a>
           </div>
         </div>
     </section>
@@ -91,7 +90,7 @@
                 <section id="featured-services" class="featured-services">
                     <div class="container">
             
-                    <div class="row gy-4">
+                    <div class="row justify-content-center">
             
                         <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
                         <div class="service-item position-relative">
@@ -189,7 +188,7 @@
                         </div>
                         <div class="member-info">
                         <div class="social">
-                            <a href=""><i class="bi bi-github"></i></a>
+                            <a href="https://github.com/tartari1234"><i class="bi bi-github"></i></a>
                         </div>
                         <h4>Sri Lestari</h4>
                         <span>Documentation</span>
