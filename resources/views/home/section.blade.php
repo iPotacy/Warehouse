@@ -50,6 +50,7 @@
 
             <li><a class="nav-link scrollto" href="#hero-animated">Home</a></li>
             <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#team">Team</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav><!-- .navbar -->
@@ -116,13 +117,7 @@
                         </div>
                         </div><!-- End Service Item -->
             
-                        <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
-                        <div class="service-item position-relative">
-                            <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-                            <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-                        </div>
-                        </div><!-- End Service Item -->
+                        
             
                     </div>
             
@@ -130,6 +125,82 @@
                 </section><!-- End Featured Services Section -->
 
         </section><!-- End About Section -->
+
+            <!-- ======= Team Section ======= -->
+        <section id="team" class="team">
+            <div class="container" data-aos="fade-up">
+    
+            <div class="section-header">
+                <h2>Our Team</h2>
+                <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+            </div>
+    
+            <div class="row gy-5">
+    
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="team-member">
+                        <div class="member-img">
+                        <img src="{{ asset('section/assets/img/team/1.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                        <div class="social">
+                            <a href="https://github.com/iPotacy" target="_blank"><i class="bi bi-github"></i></a>
+                        </div>
+                        <h4>Mahez Arya Panangsang</h4>
+                        <span>PM/Back End</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+    
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="team-member">
+                        <div class="member-img">
+                        <img src="{{ asset('section/assets/img/team/2.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                        <div class="social">
+                            <a href="https://github.com/NataNaraNPS" target="_blank"><i class="bi bi-github"></i></a>
+                        </div>
+                        <h4>Nata Nara Narendra P.S</h4>
+                        <span>Front End</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+    
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="team-member">
+                        <div class="member-img">
+                        <img src="{{ asset('section/assets/img/team/3.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                        <div class="social">
+                            <a href="https://github.com/Qonitaaa832" target="_blank"><i class="bi bi-github"></i></a>
+                        </div>
+                        <h4>Qonita Azizah</h4>
+                        <span>Front End</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="team-member">
+                        <div class="member-img">
+                        <img src="{{ asset('section/assets/img/team/4.png')}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                        <div class="social">
+                            <a href=""><i class="bi bi-github"></i></a>
+                        </div>
+                        <h4>Sri Lestari</h4>
+                        <span>Documentation</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+    
+                </div>
+    
+            </div>
+        </section><!-- End Team Section -->
 
         
 
