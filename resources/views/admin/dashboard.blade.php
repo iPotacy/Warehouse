@@ -41,9 +41,10 @@
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-center align-items-center mb-3">
-            <canvas id="donutChart" style="max-height: 400px;"></canvas>
+            <canvas id="donutChart" style="max-height: 200px;"></canvas>
             <script>
             //ambil data nama kategori dan jumlah asset per asset dari DashboardController di fungsi index
+            var lbl = [@foreach($items as $item) '{{ $item->nama_barang }}', @endforeach];
             var jml = [@foreach($items as $item) {{ $item->stok_barang }}, @endforeach];
             document.addEventListener("DOMContentLoaded", () => {
                 new Chart(document.querySelector('#donutChart'), {
@@ -54,7 +55,9 @@
                             'July'
                         ],
                         */
+                        labels: lbl,
                         datasets: [{
+                            label: 'Items',
                             data: jml,
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',

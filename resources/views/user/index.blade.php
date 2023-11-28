@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
   <link rel="stylesheet" href="{{ asset('backend/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
   <link rel="stylesheet" href="{{ asset('backend/assets/css/demo.css') }}" />
+  <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}" />
 
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="{{ asset('backend/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
@@ -78,6 +79,7 @@
   <script src="{{ asset('backend/assets/js/main.js') }}"></script>
   <script src="{{ asset('backend/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js') }}"></script>
   <script src="{{ asset('backend/assets/js/tables-datatables-basic.js') }}"></script>
+  <script src="{{ asset('backend/assets/js/script.js') }}"></script>
   <!-- Page JS -->
   <script src="{{ asset('backend/assets/js/dashboards-analytics.js') }}"></script>
   <script src="{{ asset('backend/assets/DataTables/datatables.min.js') }}"></script>

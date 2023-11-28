@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\barangController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TransactionController;
@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 // Route Utama
 Route::get('/', function () 
 {
-    return view('multiUser');
+    return view('home.section');
 });
 
 // Middleware untuk validasi tidak kembali login ketika sudah login
@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function ()
     {
         Route::get('/admin', [AdminController::class, 'admin']);
         Route::resource('/transaksi', TransactionController::class);
-        Route::resource('/barang', barangController::class);
+        Route::resource('/barang', BarangController::class);
         Route::resource('/users', UsersController::class);
         Route::post('/register', [SessionController::class, 'store']);
         Route::get('/register', [SessionController::class, 'create']);
