@@ -33,7 +33,7 @@ class AdminController extends Controller
         ->groupBy('m_barang.id', 'm_barang.title')
         ->get();
         
-        $allTransaction = t_barang::orderBy('id', 'desc')->paginate(6);
+        $allTransaction = t_barang::orderBy('id', 'desc')->paginate(5);
 
         $allItems = m_barang::where('status', 1)->get(); 
 

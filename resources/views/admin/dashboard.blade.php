@@ -41,7 +41,56 @@
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-center align-items-center mb-3">
-            <div id="orderStatisticsChart"></div>
+            <canvas id="donutChart" style="max-height: 200px;"></canvas>
+            <script>
+            //ambil data nama kategori dan jumlah asset per asset dari DashboardController di fungsi index
+            var lbl = [@foreach($items as $item) '{{ $item->nama_barang }}', @endforeach];
+            var jml = [@foreach($items as $item) {{ $item->stok_barang }}, @endforeach];
+            document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#donutChart'), {
+                    type: 'doughnut',
+                    data: {
+                        /*
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June',
+                            'July'
+                        ],
+                        */
+                        labels: lbl,
+                        datasets: [{
+                            label: 'Items',
+                            data: jml,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 159, 64, 0.2)',
+                                'rgba(255, 205, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(201, 203, 207, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(255, 159, 64)',
+                                'rgb(255, 205, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(54, 162, 235)',
+                                'rgb(153, 102, 255)',
+                                'rgb(201, 203, 207)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+        </script>
+        <!-- End Bar CHart -->
           </div>
           <ul class="p-0 m-0">
             @foreach ( $items as $item )
