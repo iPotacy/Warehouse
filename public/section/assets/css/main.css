@@ -2109,6 +2109,8 @@ section {
   box-shadow: 0px 2px 15px rgba(var(--color-black-rgb), 0.1);
   background: var(--color-white);
   margin: -50px 20px 0 20px;
+  width: 200px; /* Ganti dengan lebar yang diinginkan */
+  height: 150px; /* Ganti dengan tinggi yang diinginkan */
   position: relative;
   border-radius: 8px;
 }
