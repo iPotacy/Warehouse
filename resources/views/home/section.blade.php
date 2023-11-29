@@ -131,7 +131,7 @@
     
             <div class="section-header">
                 <h2>Our Team</h2>
-                <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+                <p>Dari ide hingga implementasi, tim kita telah menavigasi setiap tahap dengan kecerdasan dan ketangguhan. Website warehouse kita adalah bukti nyata dari kemampuan luar biasa dan semangat kalian dalam menghadirkan solusi terbaik.</p>
             </div>
     
             <div class="row gy-5">

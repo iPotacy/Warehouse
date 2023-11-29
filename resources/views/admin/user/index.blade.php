@@ -5,7 +5,7 @@
   $no = 1;
 @endphp
 
-<h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Input Transaction /</span> Transaction</h4>
+<h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Check User/</span> User</h4>
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
