@@ -5,13 +5,14 @@
   $no = 1;
 @endphp
 
-<h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Input Transaction /</span> Transaction</h4>
+<h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Check Record /</span> Record</h4>
 <div class="content-wrapper">
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <div class="card-datatable table-responsive">
                 <div class="card-header flex-column flex-md-row">
                     <div class="row align-items-end">
+                        <h5 class="card-header">Check byDate</h5>
                         <div class="col-md-9">
                             <form id="contactForm" action="{{ route('filter') }}" method="get">
                                 <div class="row align-items-end">
