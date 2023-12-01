@@ -70,21 +70,26 @@
     </section>
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
-            <div class="container" data-aos="fade-up">
-              <div class="section-header">
-                <h2>About Us</h2>
-                <p >Website Warehouse Management System kami didesain untuk secara signifikan menyederhanakan tugas-tugas pengelolaan stok barang, dengan tujuan utama meningkatkan efisiensi operasional dan akurasi data di setiap tahap rantai pasokan perusahaan Anda. Dengan fitur-fitur yang terintegrasi, kami memastikan bahwa proses pengelolaan pergudangan tidak lagi menjadi beban yang rumit, melainkan menjadi suatu langkah yang mudah diakses dan dikelola.
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>About Us</h2>
+            <div class="content-wrapper d-flex">
+                <img src="{{ asset('section/assets/img/warehouse.png')}}" alt="Deskripsi gambar" width="400">
+                <p class="text-right">
+                    Website Warehouse Management System kami didesain untuk secara signifikan menyederhanakan tugas-tugas pengelolaan stok barang, dengan tujuan utama meningkatkan efisiensi operasional dan akurasi data di setiap tahap rantai pasokan perusahaan Anda. Dengan fitur-fitur yang terintegrasi, kami memastikan bahwa proses pengelolaan pergudangan tidak lagi menjadi beban yang rumit, melainkan menjadi suatu langkah yang mudah diakses dan dikelola.
 
                     Antarmuka yang kami sediakan dirancang dengan intuitif, memungkinkan pengguna untuk dengan cepat dan mudah memahami navigasi serta fungsionalitas aplikasi. Fitur pembaruan otomatis menjadikan informasi stok barang selalu terkini, meminimalkan risiko kesalahan dan memberikan kepercayaan bahwa setiap transaksi dan pergerakan barang tercatat dengan akurat.
-                    
+
                     Melalui analisis data yang mendalam, Warehouse Management System kami bukan hanya menyediakan informasi tentang status inventaris, tetapi juga memberikan wawasan yang berharga untuk pengambilan keputusan. Dengan pemahaman yang lebih baik tentang tren dan pola dalam rantai pasokan, perusahaan Anda dapat membuat keputusan yang lebih cerdas, lebih cepat, dan lebih tepat sasaran.
-                    
+
                     Lebih dari sekadar alat pengelolaan gudang, aplikasi kami berfungsi sebagai mitra strategis dalam pertumbuhan bisnis Anda. Dengan memberdayakan tim Anda untuk mengakses informasi yang relevan dan terperinci, kami membantu menciptakan lingkungan di mana inovasi dan pengembangan dapat berbunga, memungkinkan fokus yang lebih besar pada aspek-aspek penting dari pertumbuhan bisnis Anda.
-                                
                 </p>
-              </div>
             </div>
+        </div>
+    </div>
+</section>
+
 
                 <!-- ======= Featured Services Section ======= -->
                 <section id="featured-services" class="featured-services">
@@ -131,7 +136,7 @@
     
             <div class="section-header">
                 <h2>Our Team</h2>
-                <p>Dari ide hingga implementasi, tim kita telah menavigasi setiap tahap dengan kecerdasan dan ketangguhan. Website warehouse kita adalah bukti nyata dari kemampuan luar biasa dan semangat kalian dalam menghadirkan solusi terbaik.</p>
+                <p class="text-center">Dari ide hingga implementasi, tim kita telah menavigasi setiap tahap dengan kecerdasan dan ketangguhan. Website warehouse kita adalah bukti nyata dari kemampuan luar biasa dan semangat kalian dalam menghadirkan solusi terbaik.</p>
             </div>
     
             <div class="row gy-5">
@@ -146,6 +151,7 @@
                             <a href="https://github.com/iPotacy" target="_blank"><i class="bi bi-github"></i></a>
                         </div>
                         <h4>Mahez Arya Panangsang</h4>
+                        <span>Universitas Banten Jaya</span>
                         <span>PM/Back End</span>
                         </div>
                     </div>
@@ -161,6 +167,7 @@
                             <a href="https://github.com/NataNaraNPS" target="_blank"><i class="bi bi-github"></i></a>
                         </div>
                         <h4>Nata Nara Narendra P.S</h4>
+                        <span>Universitas Udayana</span>
                         <span>Front End</span>
                         </div>
                     </div>
@@ -176,6 +183,7 @@
                             <a href="https://github.com/Qonitaaa832" target="_blank"><i class="bi bi-github"></i></a>
                         </div>
                         <h4>Qonita Azizah</h4>
+                        <span>Universitas Pradita</span>
                         <span>Front End</span>
                         </div>
                     </div>
@@ -191,6 +199,7 @@
                             <a href="https://github.com/tartari1234"><i class="bi bi-github"></i></a>
                         </div>
                         <h4>Sri Lestari</h4>
+                        <span>Universitas Muria Kudus</span>
                         <span>Documentation</span>
                         </div>
                     </div>
@@ -200,6 +209,21 @@
     
             </div>
         </section><!-- End Team Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="footer-legal text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>Warehouse</span></strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
 
         
 
