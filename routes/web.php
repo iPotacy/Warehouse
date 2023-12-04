@@ -8,6 +8,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ViewBarangController;
 use App\Http\Controllers\ViewRecordController;
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -55,7 +56,7 @@ Route::middleware(['auth'])->group(function ()
         Route::resource('/users', UsersController::class);
         Route::post('/register', [SessionController::class, 'store']);
         Route::get('/register', [SessionController::class, 'create']);
-        Route::get('/admin', [AdminController::class, 'stock']);
+        Route::get('/admin', [StockController::class, 'index']);
         Route::get('generate/{id}', [TransactionController::class, 'transactionPDF']);
         Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
         Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit');

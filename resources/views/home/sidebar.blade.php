@@ -66,6 +66,12 @@
         <div data-i18n="Basic">Items</div>
       </a>
     </li>
+    <li class="menu-item">
+      <a href="{{ url('/stock') }}" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-cabinet"></i>
+        <div data-i18n="Basic">Stock</div>
+      </a>
+    </li>
     @endif
   </ul>
 </aside>
