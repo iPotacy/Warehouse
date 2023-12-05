@@ -12,7 +12,7 @@ class ViewBarangController extends Controller
      */
     public function index()
     {
-        $vBarang = m_barang::all();
+        $vBarang = m_barang::orderBy('id', 'desc')->get();
         return view('user.fitur.index', compact('vBarang'));
     }
 

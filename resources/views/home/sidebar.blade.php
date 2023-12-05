@@ -68,7 +68,7 @@
     </li>
     <li class="menu-item">
       <a href="{{ url('/stock') }}" class="menu-link">
-        <i class="menu-icon tf-icons bx bx-cabinet"></i>
+        <i class="menu-icon tf-icons bx bx-stats"></i>
         <div data-i18n="Basic">Stock</div>
       </a>
     </li>

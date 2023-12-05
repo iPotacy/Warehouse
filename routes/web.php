@@ -71,5 +71,6 @@ Route::middleware(['auth'])->group(function ()
         Route::resource('/record', ViewRecordController::class);
         Route::get('filter', [ViewRecordController::class, 'index'])->name('filter');
         Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel');
+        Route::get('/stock', [StockController::class, 'showStock']);
     });
 });

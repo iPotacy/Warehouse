@@ -40,7 +40,7 @@ class t_barang extends Model
         return $this->mTransaction->title ?? null;
     }
     public function getNameAttribute(){
-        return $this->users->name;
+        return $this->users->name ?? null;
     }
 
     // Elequont RelationShip
