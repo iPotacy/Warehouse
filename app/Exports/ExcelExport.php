@@ -30,15 +30,19 @@ class ExcelExport implements FromCollection, WithHeadings
     {
         $query = t_barang::query();
 
-        if ($this->request->date_from && $this->request->date_to) {
-            $query->whereBetween(DB::raw('DATE(created_at)'), [$this->request->date_from, $this->request->date_to]);
+        if ($this->request->date_from && $this->request->date_to) 
+        {
+            $query->whereBetween(DB::raw('DATE(created_at)'), 
+            [$this->request->date_from, $this->request->date_to]);
         }
 
         $result = $query->orderBy('id', 'desc')->get();
 
         // Transformasi kolom bayangan
-        $transformedResult = $result->map(function ($item) {
-            return [
+        $transformedResult = $result->map(function ($item) 
+        {
+            return 
+            [
                 'title_barang' => $item->title_barang,
                 'name' => $item->name,
                 'title_transaction' => $item->title_transaction,
@@ -56,7 +60,8 @@ class ExcelExport implements FromCollection, WithHeadings
 
     public function headings(): array
     {
-        return [
+        return 
+        [
             'title_barang',
             'name',
             'title_transaction',
