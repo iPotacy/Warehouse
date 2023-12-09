@@ -14,6 +14,10 @@
     <div class="card mb-4">
       <div class="mb-3 mt-3 me-4 text-end">
         <a href="{{ url('/stock') }}" class="btn btn-secondary mr-2">Reset</a>
+        <form action="{{ route('export-to-excel') }}" method="get" style="display: inline-block;">
+          <input type="hidden" name="month" class="form-control" value="{{ $request->input('month') }}">
+          <button type="submit" class="btn btn-success">Export</button>
+        </form>
       </div>
       <div class="card-datatable table-responsive">
         <table class="dataTable datatables-basic table table-striped border-top">

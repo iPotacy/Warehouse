@@ -7,6 +7,8 @@ use App\Models\m_barang;
 use App\Models\t_barang;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\StockExport;
 
 class StockController extends Controller
 {
@@ -79,5 +81,30 @@ class StockController extends Controller
         return view('user.stock.stock', ['rBarang' => $rBarang, 'request' => $request]);
         // return response()->json($rBarang);
         
+    }
+    /**
+     * Excel a newly created resource in storage.
+     */
+    public function exportExcel(Request $request)
+    {
+        $month = $request->input('month');
+
+        $filterData = t_barang::select(
+            'm_barang.id AS m_barang_id',
+            'm_barang.title AS nama_barang',
+            DB::raw("DATE_FORMAT(t_barang.created_at, '%Y-%m') AS bulan_tahun"),
+            DB::raw("SUM(CASE WHEN m_transaction.title = 'barang masuk' THEN t_barang.quantity ELSE 0 END) AS stok_masuk"),
+            DB::raw("SUM(CASE WHEN m_transaction.title = 'barang keluar' THEN t_barang.quantity ELSE 0 END) AS stok_keluar"),
+            DB::raw("(SUM(CASE WHEN m_transaction.title = 'barang masuk' THEN t_barang.quantity ELSE 0 END) -
+                    SUM(CASE WHEN m_transaction.title = 'barang keluar' THEN t_barang.quantity ELSE 0 END)) AS jumlah_stok")
+        )
+            ->join('m_barang', 'm_barang.id', '=', 't_barang.m_barang_id')
+            ->join('m_transaction', 't_barang.m_transaction_id', '=', 'm_transaction.id')
+            ->where(DB::raw("DATE_FORMAT(t_barang.created_at, '%Y-%m')"), '=', $month)
+            ->groupBy('m_barang.id', 'm_barang.title', 'bulan_tahun')
+            ->orderByDesc('bulan_tahun')
+            ->get();
+
+        return Excel::download(new StockExport($filterData), 'Stock.xlsx');
     }
 }
