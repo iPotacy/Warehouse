@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\m_barang;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ViewBarangController extends Controller
 {
@@ -62,5 +63,11 @@ class ViewBarangController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function itemsPDF(){
+        $vBarang = m_barang::all();
+        $pdf = PDF::loadView('user.fitur.itemsPDF', 
+                              ['vBarang'=>$vBarang]);
+        return $pdf->download('Data Items '.date('d-m-Y').'.pdf');
     }
 }
