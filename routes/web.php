@@ -68,6 +68,7 @@ Route::middleware(['auth'])->group(function ()
     {
         Route::get('/user', [AdminController::class, 'user']);
         Route::resource('/view', ViewBarangController::class);
+        Route::get('/ExportPDF', [ViewBarangController::class, 'itemsPDF'])->name('ExportPDF');
         Route::resource('/record', ViewRecordController::class);
         Route::get('filter', [ViewRecordController::class, 'index'])->name('filter');
         Route::get('excel', [ViewRecordController::class, 'exportExcel'])->name('excel');
