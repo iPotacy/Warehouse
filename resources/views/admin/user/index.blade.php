@@ -33,7 +33,7 @@
               <td>{{ $du->email }}</td>
               <td>{{ $du->role }}</td>
               <td>
-                <form method="POST" action="{{ route('users.destroy', ['id' => $du->id]) }}">
+                <form method="POST" action="{{ route('users.delete', ['id' => $du->id]) }}">
                   @csrf
                   @method('DELETE')
                   <div class="dropdown">
@@ -41,7 +41,7 @@
                       <i class="bx bx-dots-vertical-rounded"></i>
                     </button>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="{{ route('users.edit', ['id' => $du->id]) }}">
+                      <a class="dropdown-item" href="{{ route('users.edit.form', ['id' => $du->id]) }}">
                         <i class="bx bx-edit-alt me-1"></i>Edit
                       </a>
                       <button type="submit" class="dropdown-item" onclick="confirmDelete({{ $du->id }})">

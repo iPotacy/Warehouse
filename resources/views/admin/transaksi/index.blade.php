@@ -1,7 +1,7 @@
 @extends('admin.index')
 @section('admin')
 @php
-  $ar_judul = ['No','Item','User','Transaction','Quantity','Receiver','Status','Tgl', 'Action'];
+  $ar_judul = ['No','Item','User','Transaction','Quantity','Receiver','Status','Created At', 'Action'];
   $no = 1;
 @endphp
 <h4 class="fw-bold py-1 mt-3 ms-4"><span class="text-muted fw-light">Input Transaction /</span> Transaction</h4>
