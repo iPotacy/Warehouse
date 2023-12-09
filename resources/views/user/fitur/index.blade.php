@@ -8,6 +8,13 @@
 <div class="content-wrapper">
   <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
+      <div class="container flex-grow-1 mb-4 mt-4">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="btn btn-danger" href="{{ route('ExportPDF') }}">PDF</a>
+          </li>
+        </ul>
+      </div>
       <div class="card-datatable table-responsive">
         <table class="dataTable datatables-basic table table-striped border-top">
           <thead>
