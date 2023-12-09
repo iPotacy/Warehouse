@@ -55,7 +55,6 @@ class StockController extends Controller
 
         $rBarang = $rBarangQuery->get();
 
-        // Jika $month diisi, maka lakukan query khusus
         if ($request->has('month')) {
             $month = $request->input('month');
 
@@ -89,7 +88,7 @@ class StockController extends Controller
     {
         $month = $request->input('month');
 
-        $filterData = t_barang::select(
+        $filteredData = t_barang::select(
             'm_barang.id AS m_barang_id',
             'm_barang.title AS nama_barang',
             DB::raw("DATE_FORMAT(t_barang.created_at, '%Y-%m') AS bulan_tahun"),
@@ -105,6 +104,17 @@ class StockController extends Controller
             ->orderByDesc('bulan_tahun')
             ->get();
 
-        return Excel::download(new StockExport($filterData), 'Stock.xlsx');
+        $exportData = $filteredData->map(function ($item, $index) {
+            return [
+                'No.' => $index + 1,
+                'Nama Barang' => $item['nama_barang'],
+                'Bulan/Tahun' => $item['bulan_tahun'],
+                'Stok Masuk' => $item['stok_masuk'],
+                'Stok Keluar' => $item['stok_keluar'],
+                'Jumlah Stok' => $item['jumlah_stok'],
+            ];
+        });
+
+        return Excel::download(new StockExport($exportData), 'Stock.xlsx');
     }
 }

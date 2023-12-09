@@ -58,9 +58,9 @@ Route::middleware(['auth'])->group(function ()
         Route::get('/register', [SessionController::class, 'create']);
         Route::get('/admin', [StockController::class, 'index']);
         Route::get('generate/{id}', [TransactionController::class, 'transactionPDF']);
-        Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit');
-        Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit');
-        Route::delete('/users/destroy/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
+        Route::get('/barang/edit/{id}', [BarangController::class, 'edit'])->name('barang.edit.form');
+        Route::get('/users/edit/{id}', [UsersController::class, 'edit'])->name('users.edit.form');
+        Route::delete('/users/destroy/{id}', [UsersController::class, 'destroy'])->name('users.delete');
     });
 
     // Route untuk User
