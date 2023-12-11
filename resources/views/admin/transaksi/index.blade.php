@@ -34,10 +34,10 @@
                         white-space: nowrap; 
                         text-overflow: ellipsis;"
               >
-              {{ $tb->title_barang }}
+              {{ $tb->mBarang->title }}
               </td>
-              <td>{{ $tb->name }}</td>
-              @if ($tb->title_transaction === 'Barang Masuk')
+              <td>{{ $tb->users->name }}</td>
+              @if ($tb->mTransaction->title === 'Barang Masuk')
               <td>
                 <span class="badge bg-label-info me-1">Masuk</span>
               </td>
@@ -48,7 +48,7 @@
               @endif
               <td>{{ $tb->quantity }}</td>
               <td>{{ $tb->receiver }}</td>
-              @if ($tb->title_status === 'Masuk')
+              @if ($tb->mStatus->title === 'Masuk')
               <td>
                 <span class="badge bg-label-success me-1">Received</span>
               </td>

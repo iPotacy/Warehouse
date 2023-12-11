@@ -22,7 +22,13 @@ class TransactionController extends Controller
         //         $mbarang -> with('barang_keluar');
         //     }
         // ])->get();
-        $tBarang = t_barang::orderBy('id', 'desc')->get();
+        $tBarang = t_barang::orderBy('id', 'desc')
+        ->with([
+            'mBarang:id,title',
+            'users:id,name',
+            'mTransaction:id,title',
+            'mStatus:id,title'
+        ])->get();
         return view ('admin.transaksi.index', compact('tBarang'));
         // return response()->json($tBarang);
     }
