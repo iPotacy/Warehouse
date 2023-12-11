@@ -34,6 +34,7 @@ class ViewRecordController extends Controller
         )->paginate();
         
         return view('user.record.record', compact('rBarang', 'request'));
+        // return response()->json($rBarang);
     }
 
     /**

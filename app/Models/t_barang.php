@@ -31,7 +31,7 @@ class t_barang extends Model
     
     // Attribute
     public function getTitleBarangAttribute(){
-        return $this->mBarang->title;
+        return $this->mBarang->title ?? null;
     }
     public function getTitleStatusAttribute(){
         return $this->mStatus->title ?? null;
