@@ -50,6 +50,7 @@ class ExcelExport implements FromCollection, WithHeadings
                 'description' => $item->description,
                 'receiver' => $item->receiver,
                 'title_status' => $item->title_status,
+                'created_at' => $item->created_at,
             ];
         });
 
@@ -68,7 +69,8 @@ class ExcelExport implements FromCollection, WithHeadings
             'quantity',
             'description',
             'receiver',
-            'title_status'
+            'title_status',
+            'created_at'
         ];
     }
 }

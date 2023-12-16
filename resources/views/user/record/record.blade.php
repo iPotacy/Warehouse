@@ -34,8 +34,9 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="mb-3">
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-primary">Search</button>
+                                            <div class="form-group d-flex justify-content-between">
+                                                <button type="submit" class="btn btn-primary mr-2">Search</button>
+                                                <a href="{{ url('/record') }}" class="btn btn-secondary">Reset</a>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +45,6 @@
                         </div>
                         <div class="col-md-3">
                             <div class="mb-3 text-end">
-                                <a href="{{ url('/record') }}" class="btn btn-secondary mr-2">Reset</a>
                                 <form action="{{ route('excel') }}" method="get" style="display: inline-block;">
                                     <input type="hidden" name="date_from" class="form-control" value="{{ $request->date_from }}">
                                     <input type="hidden" name="date_to" class="form-control" value="{{ $request->date_to }}">

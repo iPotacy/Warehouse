@@ -20,7 +20,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $tBarang = m_barang::all();
+        $tBarang = t_barang::all();
         return new AdminResource(true,'Data Transaksi',$tBarang);
     }
 
