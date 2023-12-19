@@ -61,4 +61,9 @@
 - Run command composer update or composer install to get the package from composer
 - cp .env.example .env
 - php artisan key:generate
+- php artisan migrate
+- php artisan db:seed --class=DummyUserSeeder
+- php artisan db:seed --class=DummyMasterBarangSeeder
+- php artisan db:seed --class=DummyMasterStatusSeeder
+- php artisan db:seed --class=DummyMasterTransactionSeeder
 - php artisan serve
