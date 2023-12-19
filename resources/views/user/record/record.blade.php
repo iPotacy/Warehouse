@@ -35,7 +35,7 @@
                                     <div class="col-md-2">
                                         <div class="mb-3">
                                             <div class="form-group d-flex justify-content-between">
-                                                <button type="submit" class="btn btn-primary mr-2">Search</button>
+                                                <button type="submit" class="btn btn-primary mx-2">Search</button>
                                                 <a href="{{ url('/record') }}" class="btn btn-secondary">Reset</a>
                                             </div>
                                         </div>
