@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\users;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -31,7 +32,7 @@ class DummyUserSeeder extends Seeder
 
         foreach($user as $key => $value)
         {
-            User::create($value);
+            users::create($value);
         }
     }
 }
