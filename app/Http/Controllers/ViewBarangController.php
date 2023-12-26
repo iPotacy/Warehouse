@@ -65,7 +65,7 @@ class ViewBarangController extends Controller
         //
     }
     public function itemsPDF(){
-        $vBarang = m_barang::all();
+        $vBarang =  m_barang::orderBy('id', 'desc')->get();
         $pdf = PDF::loadView('user.fitur.itemsPDF', 
                               ['vBarang'=>$vBarang]);
         return $pdf->download('Data Items '.date('d-m-Y').'.pdf');
