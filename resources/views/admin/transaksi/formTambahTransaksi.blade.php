@@ -7,7 +7,7 @@
       @csrf
       <div class="col-lg-7">
         <div class="card mb-4">
-          <h5 class="card-header">Form Controls</h5>
+          <h5 class="card-header">Add Transaction</h5>
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
